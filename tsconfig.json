@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,
+
+    "esModuleInterop": true,          // Melhor interoperabilidade entre CommonJS/ES Modules
+    "skipLibCheck": true,             // Otimização: pula verificação de tipos nas libs
+    "forceConsistentCasingInFileNames": true, // Evita problemas com case sensitivity
+    
+    /* Strict Type-Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    
+    /* Linter Checks */
+    "noUnusedLocals": false,           // Erro em variáveis locais não usadas
+    "noUnusedParameters": false,       // Erro em parâmetros não usados
+    "noImplicitReturns": true,        // Erro se função não retornar explicitamente
+    "noFallthroughCasesInSwitch": true // Erro em fallthrough no switch
+    
+    /* Você pode adicionar se usar decorators */
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*"],            // Arquivos a serem incluídos
+  "exclude": [                       // Arquivos a serem ignorados
+    "node_modules",
+    "**/*.spec.ts",                  // Ignora testes (ajuste conforme necessário)
+    "**/*.test.ts"
+  ]
+}
