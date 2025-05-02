@@ -1,19 +1,19 @@
 export interface HttpResponse<res> {
     statusCode: number;
-    body:  res | string
+    body: res | string;
 }
 
 export interface HttpRequest<
     TBody = unknown,
     TParams = unknown,
     THeaders = unknown,
-    TQuery = unknown,   
+    TQuery = unknown,
 > {
     body?: TBody;
     headers?: THeaders;
     params?: TParams;
     query?: TQuery;
-    method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 }
 
 export enum HttpStatusCode {
@@ -25,5 +25,5 @@ export enum HttpStatusCode {
 }
 
 export interface iController {
-    handle(HttpRequest: HttpRequest): Promise<HttpResponse<unknown>>
+    handle(HttpRequest: HttpRequest): Promise<HttpResponse<unknown>>;
 }
