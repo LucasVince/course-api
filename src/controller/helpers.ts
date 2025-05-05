@@ -9,28 +9,28 @@ export const ok = (message: any) => {
     };
 };
 
-export const created = (message: unknown) => {
+export const created = (message: any) => {
     return {
         statusCode: HttpStatusCode.CREATED,
         body: message,
     };
 };
 
-export const badRequest = (message: unknown) => {
+export const badRequest = (message: any) => {
     return {
         statusCode: HttpStatusCode.CREATED,
         body: message,
     };
 };
 
-export const notFound = (message: unknown) => {
+export const notFound = (message: any) => {
     return {
         statusCode: HttpStatusCode.CREATED,
         body: message,
     };
 };
 
-export const serverError = (message: string) => {
+export const serverError = (message: any) => {
     return {
         statusCode: HttpStatusCode.CREATED,
         body: message,
