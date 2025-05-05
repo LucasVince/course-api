@@ -18,21 +18,21 @@ export const created = (message: any) => {
 
 export const badRequest = (message: any) => {
     return {
-        statusCode: HttpStatusCode.CREATED,
+        statusCode: HttpStatusCode.BAD_REQUEST,
         body: message,
     };
 };
 
 export const notFound = (message: any) => {
     return {
-        statusCode: HttpStatusCode.CREATED,
+        statusCode: HttpStatusCode.NOT_FOUND,
         body: message,
     };
 };
 
 export const serverError = (message: any) => {
     return {
-        statusCode: HttpStatusCode.CREATED,
+        statusCode: HttpStatusCode.SERVER_ERROR,
         body: message,
     };
 };

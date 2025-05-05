@@ -9,10 +9,21 @@ export class registerUserController implements iController {
     constructor(private readonly registerUserRepository: iRegisterUserRepositoy) {}
     async handle(HttpRequest: HttpRequest<iRegisterUserParams>): Promise<HttpResponse<user>> {
         try {
-            const requiredFields = ['name', 'email', 'password', 'role'];
+            const requiredFields: Array<keyof iRegisterUserParams> = [
+                'name',
+                'email',
+                'password',
+                'role',
+            ];
+
+            const body = HttpRequest?.body!;
+
+            if (!body) {
+                return badRequest('Missing body');
+            }
 
             for (const field of requiredFields) {
-                if (!HttpRequest?.body?.[field as keyof iRegisterUserParams]) {
+                if (!body[field]) {
                     return badRequest(`Missing param: ${field}`);
                 }
             }
@@ -28,10 +39,10 @@ export class registerUserController implements iController {
             const hashedPassword = await hash(password, 10);
 
             const userToCreate: iRegisterUserParams = {
-                name,
-                email,
+                name: name,
+                email: email,
                 password: hashedPassword,
-                role,
+                role: role,
             };
 
             const user = await this.registerUserRepository.registerUser(userToCreate as user);

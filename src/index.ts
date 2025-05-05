@@ -33,7 +33,15 @@ const main = async () => {
     app.post('/register', async (req, res) => {
         const RegisterUser = registerUserFactory();
 
-        const response = await RegisterUser.handle(req.body);
+        const HttpRequest = {
+            body: req.body,
+            headers: req.headers,
+            params: req.params,
+            query: req.query,
+            method: req.method as 'POST',
+        };
+
+        const response = await RegisterUser.handle(HttpRequest);
 
         res.status(response.statusCode).json(response.body);
     });
