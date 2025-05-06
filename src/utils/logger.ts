@@ -10,7 +10,7 @@ export const logger = winston.createLogger({
     ),
     transports: [
         new winston.transports.Console(),
-        new winston.transports.File({ filename: 'src/utils/app.log', level: 'info' }),
-        new winston.transports.File({ filename: 'src/utils/error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'src/utils/logs/app.log', level: 'info' }),
+        new winston.transports.File({ filename: 'src/utils/logs/error.log', level: 'error' }),
     ],
 });

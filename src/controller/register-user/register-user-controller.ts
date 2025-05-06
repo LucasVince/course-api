@@ -5,7 +5,7 @@ import { iRegisterUserParams, iRegisterUserRepositoy } from './protocols';
 import { iJwtPayload } from '../../../types/JwtPayload';
 import { isEmail } from 'validator';
 import { hash } from 'bcrypt';
-import { generateToken } from '../helpers';
+import { generateToken } from '../../utils/generateToken';
 import { logger } from '../../utils/logger';
 
 export class registerUserController implements iController {

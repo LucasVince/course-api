@@ -1,6 +1,4 @@
-import { logger } from '../utils/logger';
 import { HttpStatusCode } from './protocols';
-import { sign } from 'jsonwebtoken';
 
 export const ok = (message: any) => {
     return {
@@ -35,11 +33,4 @@ export const serverError = (message: any) => {
         statusCode: HttpStatusCode.SERVER_ERROR,
         body: message,
     };
-};
-
-export const generateToken = (payload: object): string => {
-    logger.info('generating token....');
-    return sign(payload, process.env.JWT_SECRET as string, {
-        expiresIn: '1h',
-    });
 };
