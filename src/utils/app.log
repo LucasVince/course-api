@@ -111,3 +111,13 @@
 [2025-05-06T21:43:12.488Z] INFO: Response from post user:
 [2025-05-06T21:44:30.657Z] INFO: connected successfully to db
 [2025-05-06T21:44:30.664Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:44:58.438Z] INFO: connected successfully to db
+[2025-05-06T21:44:58.445Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:45:03.094Z] INFO: Get users controller called
+[2025-05-06T21:45:03.094Z] INFO: getUsersRepository start
+[2025-05-06T21:45:03.789Z] INFO: Get users successfully
+[2025-05-06T21:45:03.793Z] INFO: Response from get users:
+[2025-05-06T21:45:22.186Z] INFO: Get courses controller called
+[2025-05-06T21:45:22.187Z] INFO: getCoursesRepository start
+[2025-05-06T21:45:22.205Z] INFO: Get courses successfully
+[2025-05-06T21:45:22.207Z] INFO: Response from get courses:
