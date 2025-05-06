@@ -5,6 +5,7 @@ import { getUsersFactory } from './factories/get-users-factor';
 import { getCoursesFactory } from './factories/get-courses-factor';
 import { registerUserFactory } from './factories/register-user-factor';
 import { logger } from './utils/logger';
+import { authToken } from './middleware/authToken';
 
 const main = async () => {
     const app = express();
@@ -15,7 +16,7 @@ const main = async () => {
 
     await mongoClient.connect();
 
-    app.get('/users', async (req, res) => {
+    app.get('/users', authToken, async (req, res) => {
         const GetUsers = getUsersFactory();
 
         const response = await GetUsers.handle();
@@ -24,7 +25,7 @@ const main = async () => {
         logger.info('Response from get users:', response);
     });
 
-    app.get('/courses', async (req, res) => {
+    app.get('/courses', authToken, async (req, res) => {
         const GetCourses = getCoursesFactory();
 
         const response = await GetCourses.handle();

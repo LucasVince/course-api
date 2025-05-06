@@ -2,6 +2,7 @@ import { user } from '../../models/user';
 import { badRequest, created, serverError } from '../helpers';
 import { HttpRequest, HttpResponse, iController } from '../protocols';
 import { iRegisterUserParams, iRegisterUserRepositoy } from './protocols';
+import { iJwtPayload } from '../../../types/JwtPayload';
 import { isEmail } from 'validator';
 import { hash } from 'bcrypt';
 import { generateToken } from '../helpers';
@@ -72,7 +73,11 @@ export class registerUserController implements iController {
 
             const user = await this.registerUserRepository.registerUser(userToCreate as user);
 
-            const token = generateToken(user);
+            const userPayload: iJwtPayload = {
+                id: user.id,
+            };
+
+            const token = generateToken(userPayload);
 
             logger.info('User created', user);
             logger.info('Token generated', token);

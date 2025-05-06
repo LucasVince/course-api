@@ -121,3 +121,47 @@
 [2025-05-06T21:45:22.187Z] INFO: getCoursesRepository start
 [2025-05-06T21:45:22.205Z] INFO: Get courses successfully
 [2025-05-06T21:45:22.207Z] INFO: Response from get courses:
+[2025-05-06T23:42:19.236Z] INFO: connected successfully to db
+[2025-05-06T23:42:19.243Z] INFO: server on!!! running on port 8080
+[2025-05-06T23:49:09.492Z] INFO: connected successfully to db
+[2025-05-06T23:49:09.501Z] INFO: server on!!! running on port 8080
+[2025-05-06T23:50:33.549Z] INFO: Register user controller initialized
+[2025-05-06T23:50:33.550Z] INFO: Register user controller body:
+[2025-05-06T23:50:33.550Z] INFO: name
+[2025-05-06T23:50:33.551Z] INFO: email
+[2025-05-06T23:50:33.551Z] INFO: password
+[2025-05-06T23:50:33.551Z] INFO: role
+[2025-05-06T23:50:33.622Z] INFO: Hashed password
+[2025-05-06T23:50:33.623Z] INFO: Role to lower case
+[2025-05-06T23:50:33.623Z] INFO: getCoursesRepository start
+[2025-05-06T23:50:34.473Z] ERROR: User already exists with this email:
+[2025-05-06T23:50:34.475Z] INFO: Response from post user:
+[2025-05-06T23:51:39.637Z] INFO: connected successfully to db
+[2025-05-06T23:51:39.644Z] INFO: server on!!! running on port 8080
+[2025-05-06T23:51:56.936Z] INFO: Register user controller initialized
+[2025-05-06T23:51:56.937Z] INFO: Register user controller body:
+[2025-05-06T23:51:56.937Z] INFO: name
+[2025-05-06T23:51:56.938Z] INFO: email
+[2025-05-06T23:51:56.938Z] INFO: password
+[2025-05-06T23:51:56.939Z] INFO: role
+[2025-05-06T23:51:57.009Z] INFO: Hashed password
+[2025-05-06T23:51:57.010Z] INFO: Role to lower case
+[2025-05-06T23:51:57.011Z] INFO: getCoursesRepository start
+[2025-05-06T23:51:57.515Z] ERROR: User already exists with this email:
+[2025-05-06T23:51:57.519Z] INFO: Response from post user:
+[2025-05-06T23:52:21.191Z] INFO: Register user controller initialized
+[2025-05-06T23:52:21.191Z] INFO: Register user controller body:
+[2025-05-06T23:52:21.192Z] INFO: name
+[2025-05-06T23:52:21.192Z] INFO: email
+[2025-05-06T23:52:21.192Z] INFO: password
+[2025-05-06T23:52:21.192Z] INFO: role
+[2025-05-06T23:52:21.264Z] INFO: Hashed password
+[2025-05-06T23:52:21.265Z] INFO: Role to lower case
+[2025-05-06T23:52:21.265Z] INFO: getCoursesRepository start
+[2025-05-06T23:52:21.310Z] INFO: User created successfully:
+[2025-05-06T23:52:21.327Z] INFO: generating token....
+[2025-05-06T23:52:21.330Z] INFO: User created
+[2025-05-06T23:52:21.330Z] INFO: Token generated
+[2025-05-06T23:52:21.331Z] INFO: Response from post user:
+[2025-05-06T23:52:49.947Z] INFO: connected successfully to db
+[2025-05-06T23:52:49.955Z] INFO: server on!!! running on port 8080
