@@ -1,4 +1,5 @@
 import { Db, MongoClient } from 'mongodb';
+import { logger } from '../utils/logger';
 
 export const mongoClient = {
     client: undefined as unknown as MongoClient,
@@ -16,5 +17,6 @@ export const mongoClient = {
         this.db = db;
 
         console.log('connected successfully to db');
+        logger.info('connected successfully to db');
     },
 };

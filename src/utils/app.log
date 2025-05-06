@@ -1,0 +1,113 @@
+[2025-05-06T21:21:26.123Z] INFO: Register user controller initialized
+[2025-05-06T21:21:26.126Z] INFO: Register user controller
+[2025-05-06T21:21:26.127Z] INFO: name
+[2025-05-06T21:21:26.127Z] INFO: email
+[2025-05-06T21:21:26.127Z] INFO: password
+[2025-05-06T21:21:26.128Z] INFO: role
+[2025-05-06T21:21:26.200Z] INFO: Hashed password
+[2025-05-06T21:21:26.944Z] INFO: User created
+[2025-05-06T21:21:26.944Z] INFO: Token generated
+[2025-05-06T21:21:29.427Z] INFO: Register user controller initialized
+[2025-05-06T21:21:29.427Z] INFO: Register user controller
+[2025-05-06T21:21:29.427Z] INFO: name
+[2025-05-06T21:21:29.427Z] INFO: email
+[2025-05-06T21:21:29.428Z] INFO: password
+[2025-05-06T21:21:29.428Z] INFO: role
+[2025-05-06T21:21:29.497Z] INFO: Hashed password
+[2025-05-06T21:21:36.236Z] INFO: Register user controller initialized
+[2025-05-06T21:21:36.237Z] INFO: Register user controller
+[2025-05-06T21:21:36.237Z] ERROR: Missing param: name
+[2025-05-06T21:21:44.691Z] INFO: Register user controller initialized
+[2025-05-06T21:21:44.691Z] INFO: Register user controller
+[2025-05-06T21:21:44.692Z] INFO: name
+[2025-05-06T21:21:44.692Z] INFO: email
+[2025-05-06T21:21:44.692Z] INFO: password
+[2025-05-06T21:21:44.692Z] INFO: role
+[2025-05-06T21:21:44.692Z] ERROR: Invalid email format
+[2025-05-06T21:21:56.346Z] INFO: Register user controller initialized
+[2025-05-06T21:21:56.346Z] INFO: Register user controller
+[2025-05-06T21:21:56.346Z] INFO: name
+[2025-05-06T21:21:56.346Z] INFO: email
+[2025-05-06T21:21:56.347Z] INFO: password
+[2025-05-06T21:21:56.347Z] INFO: role
+[2025-05-06T21:21:56.347Z] ERROR: Invalid email format
+[2025-05-06T21:22:02.724Z] INFO: Register user controller initialized
+[2025-05-06T21:22:02.724Z] INFO: Register user controller
+[2025-05-06T21:22:02.724Z] INFO: name
+[2025-05-06T21:22:02.725Z] INFO: email
+[2025-05-06T21:22:02.725Z] INFO: password
+[2025-05-06T21:22:02.725Z] INFO: role
+[2025-05-06T21:22:02.725Z] ERROR: Invalid role. Role must be either "teacher" or "student"
+[2025-05-06T21:22:23.774Z] INFO: Register user controller initialized
+[2025-05-06T21:22:23.775Z] INFO: Register user controller
+[2025-05-06T21:22:23.775Z] ERROR: Missing param: password
+[2025-05-06T21:22:32.895Z] INFO: Register user controller initialized
+[2025-05-06T21:22:32.895Z] INFO: Register user controller
+[2025-05-06T21:22:32.895Z] INFO: name
+[2025-05-06T21:22:32.895Z] INFO: email
+[2025-05-06T21:22:32.896Z] INFO: password
+[2025-05-06T21:22:32.896Z] INFO: role
+[2025-05-06T21:22:32.965Z] INFO: Hashed password
+[2025-05-06T21:22:33.040Z] INFO: User created
+[2025-05-06T21:22:33.040Z] INFO: Token generated
+[2025-05-06T21:29:39.848Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:30:02.031Z] INFO: connected successfully to db
+[2025-05-06T21:30:02.038Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:35:24.286Z] INFO: connected successfully to db
+[2025-05-06T21:35:24.293Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:35:46.700Z] INFO: connected successfully to db
+[2025-05-06T21:35:46.707Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:36:02.582Z] INFO: connected successfully to db
+[2025-05-06T21:36:02.593Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:36:13.306Z] INFO: connected successfully to db
+[2025-05-06T21:36:13.316Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:36:36.885Z] INFO: connected successfully to db
+[2025-05-06T21:36:36.894Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:37:03.945Z] INFO: connected successfully to db
+[2025-05-06T21:37:03.952Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:37:11.776Z] INFO: connected successfully to db
+[2025-05-06T21:37:11.783Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:37:33.915Z] INFO: connected successfully to db
+[2025-05-06T21:37:33.923Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:37:45.525Z] INFO: connected successfully to db
+[2025-05-06T21:37:45.532Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:37:49.473Z] INFO: connected successfully to db
+[2025-05-06T21:37:49.480Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:37:55.752Z] INFO: connected successfully to db
+[2025-05-06T21:37:55.760Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:38:02.389Z] INFO: connected successfully to db
+[2025-05-06T21:38:02.396Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:38:28.796Z] INFO: connected successfully to db
+[2025-05-06T21:38:28.806Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:38:40.406Z] INFO: connected successfully to db
+[2025-05-06T21:38:40.415Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:39:03.502Z] INFO: connected successfully to db
+[2025-05-06T21:39:03.510Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:39:13.808Z] INFO: connected successfully to db
+[2025-05-06T21:39:13.816Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:39:27.882Z] INFO: connected successfully to db
+[2025-05-06T21:39:27.889Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:39:35.167Z] INFO: connected successfully to db
+[2025-05-06T21:39:35.175Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:40:11.778Z] INFO: connected successfully to db
+[2025-05-06T21:40:11.785Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:41:49.234Z] INFO: connected successfully to db
+[2025-05-06T21:41:49.241Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:42:02.673Z] INFO: connected successfully to db
+[2025-05-06T21:42:02.682Z] INFO: server on!!! running on port 8080
+[2025-05-06T21:43:11.821Z] INFO: Register user controller initialized
+[2025-05-06T21:43:11.822Z] INFO: Register user controller
+[2025-05-06T21:43:11.823Z] INFO: name
+[2025-05-06T21:43:11.823Z] INFO: email
+[2025-05-06T21:43:11.824Z] INFO: password
+[2025-05-06T21:43:11.824Z] INFO: role
+[2025-05-06T21:43:11.901Z] INFO: Hashed password
+[2025-05-06T21:43:11.902Z] INFO: Role to lower case
+[2025-05-06T21:43:11.902Z] INFO: getCoursesRepository start
+[2025-05-06T21:43:12.461Z] INFO: User created successfully:
+[2025-05-06T21:43:12.482Z] INFO: generating token....
+[2025-05-06T21:43:12.485Z] INFO: User created
+[2025-05-06T21:43:12.485Z] INFO: Token generated
+[2025-05-06T21:43:12.488Z] INFO: Response from post user:
+[2025-05-06T21:44:30.657Z] INFO: connected successfully to db
+[2025-05-06T21:44:30.664Z] INFO: server on!!! running on port 8080

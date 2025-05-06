@@ -21,7 +21,7 @@ export class registerUserController implements iController {
 
             const body = HttpRequest?.body!;
 
-            logger.info('Register user controller', body);
+            logger.info('Register user controller body:', body);
 
             if (!body) {
                 logger.error('Missing body in register user controller');
@@ -60,11 +60,14 @@ export class registerUserController implements iController {
 
             logger.info('Hashed password', hashedPassword);
 
+            const roleToLowerCase = role.toLowerCase() as 'teacher' | 'student';
+            logger.info('Role to lower case', roleToLowerCase);
+
             const userToCreate: iRegisterUserParams = {
                 name: name,
                 email: email,
                 password: hashedPassword,
-                role: role,
+                role: roleToLowerCase,
             };
 
             const user = await this.registerUserRepository.registerUser(userToCreate as user);
@@ -73,7 +76,7 @@ export class registerUserController implements iController {
 
             logger.info('User created', user);
             logger.info('Token generated', token);
-            
+
             return created({ user: user, token: token });
         } catch (error) {
             return serverError(error as string);

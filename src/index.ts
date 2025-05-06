@@ -4,6 +4,7 @@ import { mongoClient } from './database/mongo';
 import { getUsersFactory } from './factories/get-users-factor';
 import { getCoursesFactory } from './factories/get-courses-factor';
 import { registerUserFactory } from './factories/register-user-factor';
+import { logger } from './utils/logger';
 
 const main = async () => {
     const app = express();
@@ -20,6 +21,7 @@ const main = async () => {
         const response = await GetUsers.handle();
 
         res.status(response.statusCode).json(response.body);
+        logger.info('Response from get users:', response);
     });
 
     app.get('/courses', async (req, res) => {
@@ -28,6 +30,7 @@ const main = async () => {
         const response = await GetCourses.handle();
 
         res.status(response.statusCode).json(response.body);
+        logger.info('Response from get courses:', response);
     });
 
     app.post('/register', async (req, res) => {
@@ -44,13 +47,13 @@ const main = async () => {
         const response = await RegisterUser.handle(HttpRequest);
 
         res.status(response.statusCode).json(response.body);
-        
-        console.log('Response:', response);
+        logger.info('Response from post user:', response);
     });
 
-    app.listen(process.env.PORT, () =>
-        console.log(`server on!!! running on port ${process.env.PORT}`),
-    );
+    app.listen(process.env.PORT, () => {
+        console.log(`server on!!! running on port ${process.env.PORT}`);
+        logger.info(`server on!!! running on port ${process.env.PORT}`);
+    });
 };
 
 main();

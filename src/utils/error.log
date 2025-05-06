@@ -1,0 +1,5 @@
+[2025-05-06T21:21:36.237Z] ERROR: Missing param: name
+[2025-05-06T21:21:44.692Z] ERROR: Invalid email format
+[2025-05-06T21:21:56.347Z] ERROR: Invalid email format
+[2025-05-06T21:22:02.725Z] ERROR: Invalid role. Role must be either "teacher" or "student"
+[2025-05-06T21:22:23.775Z] ERROR: Missing param: password
