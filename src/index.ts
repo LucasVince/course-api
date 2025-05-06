@@ -44,6 +44,8 @@ const main = async () => {
         const response = await RegisterUser.handle(HttpRequest);
 
         res.status(response.statusCode).json(response.body);
+        
+        console.log('Response:', response);
     });
 
     app.listen(process.env.PORT, () =>

@@ -1,6 +1,5 @@
-import { course } from '../models/course';
-import { user } from '../models/user';
 import { HttpStatusCode } from './protocols';
+import { sign } from 'jsonwebtoken';
 
 export const ok = (message: any) => {
     return {
@@ -35,4 +34,10 @@ export const serverError = (message: any) => {
         statusCode: HttpStatusCode.SERVER_ERROR,
         body: message,
     };
+};
+
+export const generateToken = (payload: object): string => {
+    return sign(payload, process.env.JWT_SECRET as string, {
+        expiresIn: '1h',
+    });
 };

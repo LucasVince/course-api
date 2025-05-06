@@ -4,6 +4,7 @@ import { HttpRequest, HttpResponse, iController } from '../protocols';
 import { iRegisterUserParams, iRegisterUserRepositoy } from './protocols';
 import { isEmail } from 'validator';
 import { hash } from 'bcrypt';
+import { generateToken } from '../helpers';
 
 export class registerUserController implements iController {
     constructor(private readonly registerUserRepository: iRegisterUserRepositoy) {}
@@ -28,12 +29,18 @@ export class registerUserController implements iController {
                 }
             }
 
-            const { name, email, password, role } = HttpRequest!.body!;
+            const { name, email, password, role } = body;
 
             const isEmailValid = isEmail(email);
 
             if (!isEmailValid) {
                 return badRequest('Invalid email format');
+            }
+
+            const validRoles = ['teacher', 'student'];
+
+            if (!validRoles.includes(HttpRequest?.body!.role.toLocaleUpperCase())) {
+                return badRequest('Invalid role. Role must be either "teacher" or "student"');
             }
 
             const hashedPassword = await hash(password, 10);
@@ -47,7 +54,9 @@ export class registerUserController implements iController {
 
             const user = await this.registerUserRepository.registerUser(userToCreate as user);
 
-            return created(user);
+            const token = generateToken(user);
+
+            return created({ user: user, token: token });
         } catch (error) {
             return serverError(error as string);
         }
