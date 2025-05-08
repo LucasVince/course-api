@@ -2,6 +2,7 @@ import express from 'express';
 import { config } from 'dotenv';
 import { mongoClient } from './database/mongo';
 import { getUsersFactory } from './factories/get-users-factor';
+import { getUserByIdFactory } from './factories/get-user-by-id-factor';
 import { getCoursesFactory } from './factories/get-courses-factor';
 import { registerUserFactory } from './factories/register-user-factor';
 import { logger } from './utils/logger';
@@ -16,6 +17,10 @@ const main = async () => {
 
     await mongoClient.connect();
 
+    app.get('/', authToken, async (req, res) => {
+        res.send('Hello World');
+    });
+
     app.get('/users', authToken, async (req, res) => {
         const GetUsers = getUsersFactory();
 
@@ -23,6 +28,22 @@ const main = async () => {
 
         res.status(response.statusCode).json(response.body);
         logger.info('Response from get users:', response);
+    });
+
+    app.get('/users/:id', authToken, async (req, res) => {
+        const GetUserById = getUserByIdFactory();
+
+        const httpRequest = {
+            body: req.body,
+            params: req.params as { id: string },
+            headers: req.headers,
+            query: req.query,
+            method: req.method as 'GET',
+        };
+
+        const response = await GetUserById.handle(httpRequest);
+
+        res.status(response.statusCode).json(response.body);
     });
 
     app.get('/courses', authToken, async (req, res) => {
@@ -39,8 +60,8 @@ const main = async () => {
 
         const HttpRequest = {
             body: req.body,
-            headers: req.headers,
             params: req.params,
+            headers: req.headers,
             query: req.query,
             method: req.method as 'POST',
         };

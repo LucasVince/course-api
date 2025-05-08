@@ -9,7 +9,7 @@ export const authToken: RequestHandler = (req, res, next) => {
     const token = header && header.split(' ')[1];
 
     if (!token) {
-        res.status(401).json({ message: 'Token not found' });
+        res.status(404).json({ message: 'Token not found' });
         return;
     }
 

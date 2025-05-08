@@ -11,7 +11,9 @@ export class mongoRegisterUserRepository implements iRegisterUserRepositoy {
         const existingUser = await mongoClient.db.collection('users').findOne({ email });
 
         if (existingUser) {
-            logger.error('User already exists with this email:', { email });
+            logger.error('getCoursesRepository error: user already exists with this email:', {
+                email,
+            });
             throw new Error('User already exists');
         }
 
@@ -29,7 +31,6 @@ export class mongoRegisterUserRepository implements iRegisterUserRepositoy {
         const user = await mongoClient.db.collection<Omit<user, 'id'>>('users').findOne({
             _id: newUser.insertedId,
         });
-
 
         if (!user) {
             logger.error('User was not created');

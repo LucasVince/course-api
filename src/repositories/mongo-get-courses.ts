@@ -10,7 +10,6 @@ export class mongoGetCoursesRepository implements iGetCoursesRepository {
             (await mongoClient.db.collection<Omit<course, 'id'>>('courses').find({}).toArray()) ||
             [];
 
-
         return courses.map((course) => {
             return {
                 id: course._id.toHexString(),
