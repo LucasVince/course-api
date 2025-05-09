@@ -21,7 +21,7 @@ const main = async () => {
         res.send('Hello World');
     });
 
-    app.get('/users', authToken, async (req, res) => {
+    app.get('/users', async (req, res) => {
         const GetUsers = getUsersFactory();
 
         const response = await GetUsers.handle();
@@ -30,12 +30,12 @@ const main = async () => {
         logger.info('Response from get users:', response);
     });
 
-    app.get('/users/:id', authToken, async (req, res) => {
+    app.get('/users/:id', async (req, res) => {
         const GetUserById = getUserByIdFactory();
 
         const httpRequest = {
             body: req.body,
-            params: req.params as { id: string },
+            params: req.params,
             headers: req.headers,
             query: req.query,
             method: req.method as 'GET',
