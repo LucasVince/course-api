@@ -7,6 +7,7 @@ import { getCoursesFactory } from './factories/get-courses-factor';
 import { registerUserFactory } from './factories/register-user-factor';
 import { logger } from './utils/logger';
 import { authToken } from './middleware/authToken';
+import { getCourseByIdFactory } from './factories/get-course-by-id-factor';
 
 const main = async () => {
     const app = express();
@@ -53,6 +54,22 @@ const main = async () => {
 
         res.status(response.statusCode).json(response.body);
         logger.info('Response from get courses:', response);
+    });
+
+    app.get('/courses/:id', async (req, res) => {
+        const GetCourseById = getCourseByIdFactory();
+
+        const httpRequest = {
+            body: req.body,
+            params: req.params,
+            headers: req.headers,
+            query: req.query,
+            method: req.method as 'GET',
+        };
+
+        const response = await GetCourseById.handle(httpRequest);
+
+        res.status(response.statusCode).json(response.body);
     });
 
     app.post('/register', async (req, res) => {
