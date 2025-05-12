@@ -15,7 +15,10 @@ export class getCoursesController implements iController {
             logger.info('Get courses successfully', { courses });
             return ok(courses);
         } catch (err) {
-            return serverError(err as string);
+            if (err instanceof Error) {
+                return serverError(err.message);
+            }
+            return serverError(err)
         }
     }
 }

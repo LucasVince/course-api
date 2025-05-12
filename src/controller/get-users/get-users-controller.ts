@@ -14,7 +14,10 @@ export class getUsersController implements iController {
             logger.info('Get users successfully', { users });
             return ok(users);
         } catch (err) {
-            return serverError(err as string);
+            if (err instanceof Error) {
+                return serverError(err.message);
+            }
+            return serverError(err)
         }
     }
 }

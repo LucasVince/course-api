@@ -19,7 +19,10 @@ export class getUserByIdController implements iController {
 
             return ok(user);
         } catch (err) {
-            return serverError(err as string);
+            if (err instanceof Error) {
+                return serverError(err.message);
+            }
+            return serverError(err)
         }
     }
 }

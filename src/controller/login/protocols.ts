@@ -5,6 +5,7 @@ export interface iLoginRepository {
 }
 
 export interface iLoginParams {
+    id: string;
     email: string;
     password: string;
 }

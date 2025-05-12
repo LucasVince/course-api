@@ -66,8 +66,8 @@ export class registerUserController implements iController {
 
             const userToCreate: iRegisterUserParams = {
                 name: name,
-                email: email,
                 password: hashedPassword,
+                email: email,
                 role: roleToLowerCase,
             };
 
@@ -83,8 +83,11 @@ export class registerUserController implements iController {
             logger.info('Token generated', token);
 
             return created({ user: user, token: token });
-        } catch (error) {
-            return serverError(error as string);
+        } catch (err) {
+            if (err instanceof Error) {
+                return serverError(err.message);
+            }
+            return serverError(err)
         }
     }
 }
