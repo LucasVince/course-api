@@ -5,3 +5,4 @@
 [2025-05-06T21:22:23.775Z] ERROR: Missing param: password
 [2025-05-06T23:50:34.473Z] ERROR: User already exists with this email:
 [2025-05-06T23:51:57.515Z] ERROR: User already exists with this email:
+[2025-05-13T21:55:12.069Z] ERROR: getCoursesRepository error: user already exists with this email:

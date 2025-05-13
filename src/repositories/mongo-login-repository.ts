@@ -7,7 +7,7 @@ import { compare } from 'bcrypt';
 export class mongoLoginRepository implements iLoginRepository {
     async Login(params: iLoginParams): Promise<user> {
         logger.info('LoginRepository start');
-        const { email, password } = params;
+        const { id, email, password } = params;
 
         const user = await mongoClient.db.collection('users').findOne({ email });
 
@@ -23,7 +23,7 @@ export class mongoLoginRepository implements iLoginRepository {
             }
         });
 
-        logger.info('login don sucessfully');
+        logger.info('login done sucessfully');
 
         const { _id, ...rest } = user;
 

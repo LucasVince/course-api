@@ -33,12 +33,12 @@ export class loginController implements iController {
 
             const token = generateToken(userPayload);
 
-            return ok({ user, token }) as user;
+            return ok({ user, token });
         } catch (err) {
             if (err instanceof Error) {
-                serverError(err.message);
+                return serverError(err.message);
             }
-            serverError(err);
+            return serverError(err);
         }
     }
 }

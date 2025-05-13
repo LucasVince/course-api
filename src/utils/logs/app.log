@@ -427,3 +427,95 @@
 [2025-05-09T23:39:51.599Z] INFO: server on!!! running on port 8080
 [2025-05-09T23:39:55.656Z] INFO: connected successfully to db
 [2025-05-09T23:39:55.666Z] INFO: server on!!! running on port 8080
+[2025-05-13T21:51:35.828Z] INFO: connected successfully to db
+[2025-05-13T21:51:35.837Z] INFO: server on!!! running on port 8080
+[2025-05-13T21:52:05.545Z] INFO: connected successfully to db
+[2025-05-13T21:52:05.554Z] INFO: server on!!! running on port 8080
+[2025-05-13T21:52:07.375Z] INFO: Get users controller called
+[2025-05-13T21:52:07.376Z] INFO: getUsersRepository start
+[2025-05-13T21:52:08.212Z] INFO: Get users successfully
+[2025-05-13T21:52:08.216Z] INFO: Response from get users:
+[2025-05-13T21:52:15.504Z] INFO: Get user by id controller called
+[2025-05-13T21:52:15.504Z] INFO: id:
+[2025-05-13T21:52:15.505Z] INFO: getUserByIdRepository start
+[2025-05-13T21:52:15.528Z] INFO: user:
+[2025-05-13T21:52:37.589Z] INFO: Register user controller initialized
+[2025-05-13T21:52:37.590Z] INFO: Register user controller body:
+[2025-05-13T21:52:37.590Z] INFO: name
+[2025-05-13T21:52:37.590Z] INFO: email
+[2025-05-13T21:52:37.590Z] INFO: password
+[2025-05-13T21:52:37.590Z] INFO: role
+[2025-05-13T21:52:37.663Z] INFO: Hashed password
+[2025-05-13T21:52:37.663Z] INFO: Role to lower case
+[2025-05-13T21:52:37.664Z] INFO: getCoursesRepository start
+[2025-05-13T21:52:37.713Z] INFO: User created successfully:
+[2025-05-13T21:52:37.733Z] INFO: generating token....
+[2025-05-13T21:52:37.737Z] INFO: User created
+[2025-05-13T21:52:37.737Z] INFO: Token generated
+[2025-05-13T21:52:37.738Z] INFO: Response from post user:
+[2025-05-13T21:53:18.669Z] INFO: LoginRepository start
+[2025-05-13T21:53:18.690Z] INFO: login don sucessfully
+[2025-05-13T21:53:18.691Z] INFO: generating token....
+[2025-05-13T21:54:22.743Z] INFO: connected successfully to db
+[2025-05-13T21:54:22.752Z] INFO: server on!!! running on port 8080
+[2025-05-13T21:54:56.733Z] INFO: connected successfully to db
+[2025-05-13T21:54:56.770Z] INFO: server on!!! running on port 8080
+[2025-05-13T21:55:11.256Z] INFO: Register user controller initialized
+[2025-05-13T21:55:11.257Z] INFO: Register user controller body:
+[2025-05-13T21:55:11.257Z] INFO: name
+[2025-05-13T21:55:11.258Z] INFO: email
+[2025-05-13T21:55:11.258Z] INFO: password
+[2025-05-13T21:55:11.258Z] INFO: role
+[2025-05-13T21:55:11.330Z] INFO: Hashed password
+[2025-05-13T21:55:11.331Z] INFO: Role to lower case
+[2025-05-13T21:55:11.331Z] INFO: getCoursesRepository start
+[2025-05-13T21:55:12.069Z] ERROR: getCoursesRepository error: user already exists with this email:
+[2025-05-13T21:55:12.073Z] INFO: Response from post user:
+[2025-05-13T21:55:48.251Z] INFO: connected successfully to db
+[2025-05-13T21:55:48.259Z] INFO: server on!!! running on port 8080
+[2025-05-13T21:55:59.584Z] INFO: connected successfully to db
+[2025-05-13T21:55:59.592Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:02:42.172Z] INFO: connected successfully to db
+[2025-05-13T22:02:42.180Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:03:03.367Z] INFO: connected successfully to db
+[2025-05-13T22:03:03.375Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:03:27.470Z] INFO: connected successfully to db
+[2025-05-13T22:03:27.477Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:03:48.055Z] INFO: connected successfully to db
+[2025-05-13T22:03:48.063Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:03:52.708Z] INFO: connected successfully to db
+[2025-05-13T22:03:52.721Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:04:06.931Z] INFO: Register user controller initialized
+[2025-05-13T22:04:06.932Z] INFO: Register user controller body:
+[2025-05-13T22:04:06.932Z] INFO: name
+[2025-05-13T22:04:06.932Z] INFO: email
+[2025-05-13T22:04:06.933Z] INFO: password
+[2025-05-13T22:04:06.933Z] INFO: role
+[2025-05-13T22:04:07.004Z] INFO: Hashed password
+[2025-05-13T22:04:07.004Z] INFO: Role to lower case
+[2025-05-13T22:04:07.005Z] INFO: getCoursesRepository start
+[2025-05-13T22:04:07.695Z] INFO: User created successfully:
+[2025-05-13T22:04:07.715Z] INFO: generating token....
+[2025-05-13T22:04:07.718Z] INFO: User created
+[2025-05-13T22:04:07.719Z] INFO: Token generated
+[2025-05-13T22:04:07.723Z] INFO: Response from post user:
+[2025-05-13T22:04:36.638Z] INFO: Get users controller called
+[2025-05-13T22:04:36.639Z] INFO: getUsersRepository start
+[2025-05-13T22:04:36.660Z] INFO: Get users successfully
+[2025-05-13T22:04:36.661Z] INFO: Response from get users:
+[2025-05-13T22:04:42.006Z] INFO: Get users controller called
+[2025-05-13T22:04:42.006Z] INFO: getUsersRepository start
+[2025-05-13T22:04:42.026Z] INFO: Get users successfully
+[2025-05-13T22:04:42.027Z] INFO: Response from get users:
+[2025-05-13T22:04:43.188Z] INFO: Get users controller called
+[2025-05-13T22:04:43.188Z] INFO: getUsersRepository start
+[2025-05-13T22:04:43.207Z] INFO: Get users successfully
+[2025-05-13T22:04:43.208Z] INFO: Response from get users:
+[2025-05-13T22:04:47.907Z] INFO: Get users controller called
+[2025-05-13T22:04:47.907Z] INFO: getUsersRepository start
+[2025-05-13T22:04:47.927Z] INFO: Get users successfully
+[2025-05-13T22:04:47.928Z] INFO: Response from get users:
+[2025-05-13T22:05:02.081Z] INFO: connected successfully to db
+[2025-05-13T22:05:02.091Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:07:08.715Z] INFO: connected successfully to db
+[2025-05-13T22:07:08.724Z] INFO: server on!!! running on port 8080
