@@ -519,3 +519,8 @@
 [2025-05-13T22:05:02.091Z] INFO: server on!!! running on port 8080
 [2025-05-13T22:07:08.715Z] INFO: connected successfully to db
 [2025-05-13T22:07:08.724Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:08:06.785Z] INFO: connected successfully to db
+[2025-05-13T22:08:06.793Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:08:24.826Z] INFO: LoginRepository start
+[2025-05-13T22:08:25.564Z] INFO: login done sucessfully
+[2025-05-13T22:08:25.565Z] INFO: generating token....
