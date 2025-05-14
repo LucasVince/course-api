@@ -9,6 +9,7 @@ import { logger } from './utils/logger';
 import { authToken } from './middleware/authToken';
 import { getCourseByIdFactory } from './factories/get-course-by-id-factor';
 import { loginFactory } from './factories/login-facotr';
+import { createCourseFactory } from './factories/create-course-factor';
 
 const main = async () => {
     const app = express();
@@ -19,20 +20,19 @@ const main = async () => {
 
     await mongoClient.connect();
 
-    app.get('/', authToken, async (req, res) => {
+    app.get('/', async (req, res) => {
         res.send('Hello World');
     });
 
-    app.get('/users', authToken, async (req, res) => {
+    app.get('/users', async (req, res) => {
         const GetUsers = getUsersFactory();
 
         const response = await GetUsers.handle();
 
         res.status(response.statusCode).json(response.body);
-        logger.info('Response from get users:', response);
     });
 
-    app.get('/users/:id', authToken, async (req, res) => {
+    app.get('/users/:id', async (req, res) => {
         const GetUserById = getUserByIdFactory();
 
         const httpRequest = {
@@ -48,7 +48,7 @@ const main = async () => {
         res.status(response.statusCode).json(response.body);
     });
 
-    app.get('/courses', authToken, async (req, res) => {
+    app.get('/courses', async (req, res) => {
         const GetCourses = getCoursesFactory();
 
         const response = await GetCourses.handle();
@@ -57,10 +57,10 @@ const main = async () => {
         logger.info('Response from get courses:', response);
     });
 
-    app.get('/courses/:id', authToken, async (req, res) => {
+    app.get('/courses/:id', async (req, res) => {
         const GetCourseById = getCourseByIdFactory();
 
-        const httpRequest = {
+        const HttpRequest = {
             body: req.body,
             params: req.params as { id: string },
             headers: req.headers,
@@ -68,7 +68,23 @@ const main = async () => {
             method: req.method as 'GET',
         };
 
-        const response = await GetCourseById.handle(httpRequest);
+        const response = await GetCourseById.handle(HttpRequest);
+
+        res.status(response.statusCode).json(response.body);
+    });
+
+    app.post('/courses', async (req, res) => {
+        const createCourse = createCourseFactory();
+
+        const HttpRequest = {
+            body: req.body,
+            params: req.params,
+            headers: req.headers,
+            query: req.query,
+            method: req.method as 'POST',
+        };
+
+        const response = await createCourse.handle(HttpRequest);
 
         res.status(response.statusCode).json(response.body);
     });

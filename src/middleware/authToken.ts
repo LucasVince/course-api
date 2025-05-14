@@ -3,13 +3,15 @@
 import jwt from 'jsonwebtoken';
 import { RequestHandler } from 'express';
 import { iJwtPayload } from '../../types/JwtPayload';
+import { logger } from '../utils/logger';
 
 export const authToken: RequestHandler = (req, res, next) => {
     const header = req.headers['authorization'];
+    logger.info('Authorization header:', header);
     const token = header && header.split(' ')[1];
 
     if (!token) {
-        res.status(404).json({ message: 'Token not found' });
+        res.status(401).json({ message: 'Token not found' });
         return;
     }
 

@@ -524,3 +524,69 @@
 [2025-05-13T22:08:24.826Z] INFO: LoginRepository start
 [2025-05-13T22:08:25.564Z] INFO: login done sucessfully
 [2025-05-13T22:08:25.565Z] INFO: generating token....
+[2025-05-13T22:09:21.589Z] INFO: connected successfully to db
+[2025-05-13T22:09:21.599Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:16:07.043Z] INFO: connected successfully to db
+[2025-05-13T22:16:07.052Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:16:31.208Z] INFO: connected successfully to db
+[2025-05-13T22:16:31.215Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:16:36.148Z] INFO: connected successfully to db
+[2025-05-13T22:16:36.157Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:16:43.902Z] INFO: Register user controller initialized
+[2025-05-13T22:16:43.903Z] INFO: Register user controller body:
+[2025-05-13T22:16:43.903Z] INFO: name
+[2025-05-13T22:16:43.903Z] INFO: email
+[2025-05-13T22:16:43.903Z] INFO: password
+[2025-05-13T22:16:43.904Z] INFO: role
+[2025-05-13T22:16:43.975Z] INFO: Hashed password
+[2025-05-13T22:16:43.976Z] INFO: Role to lower case
+[2025-05-13T22:16:43.976Z] INFO: getCoursesRepository start
+[2025-05-13T22:16:44.957Z] INFO: User created successfully:
+[2025-05-13T22:16:44.979Z] INFO: generating token....
+[2025-05-13T22:16:44.982Z] INFO: User created
+[2025-05-13T22:16:44.982Z] INFO: Token generated
+[2025-05-13T22:16:44.983Z] INFO: Response from post user:
+[2025-05-13T22:16:56.559Z] INFO: connected successfully to db
+[2025-05-13T22:16:56.566Z] INFO: server on!!! running on port 8080
+[2025-05-13T22:17:09.985Z] INFO: connected successfully to db
+[2025-05-13T22:17:09.994Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:11:36.465Z] INFO: connected successfully to db
+[2025-05-14T22:11:36.474Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:13:05.741Z] INFO: connected successfully to db
+[2025-05-14T22:13:05.748Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:13:23.456Z] INFO: connected successfully to db
+[2025-05-14T22:13:23.464Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:14:09.114Z] INFO: connected successfully to db
+[2025-05-14T22:14:09.122Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:14:22.561Z] INFO: connected successfully to db
+[2025-05-14T22:14:22.568Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:15:39.509Z] INFO: connected successfully to db
+[2025-05-14T22:15:39.518Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:15:56.635Z] INFO: connected successfully to db
+[2025-05-14T22:15:56.642Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:16:41.341Z] INFO: connected successfully to db
+[2025-05-14T22:16:41.349Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:17:08.803Z] INFO: connected successfully to db
+[2025-05-14T22:17:08.811Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:17:15.375Z] INFO: connected successfully to db
+[2025-05-14T22:17:15.383Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:17:42.953Z] INFO: connected successfully to db
+[2025-05-14T22:17:42.961Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:18:18.617Z] INFO: connected successfully to db
+[2025-05-14T22:18:18.625Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:18:25.639Z] INFO: connected successfully to db
+[2025-05-14T22:18:25.647Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:19:08.617Z] INFO: connected successfully to db
+[2025-05-14T22:19:08.625Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:19:15.115Z] INFO: connected successfully to db
+[2025-05-14T22:19:15.123Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:19:25.578Z] INFO: connected successfully to db
+[2025-05-14T22:19:25.586Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:19:43.337Z] INFO: connected successfully to db
+[2025-05-14T22:19:43.345Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:19:48.414Z] INFO: connected successfully to db
+[2025-05-14T22:19:48.421Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:20:05.094Z] INFO: connected successfully to db
+[2025-05-14T22:20:05.102Z] INFO: server on!!! a on port 8080
+[2025-05-14T22:20:13.007Z] INFO: connected successfully to db
+[2025-05-14T22:20:13.015Z] INFO: server on!!! running on port 8080

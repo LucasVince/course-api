@@ -1,7 +1,7 @@
 import { user } from '../../models/user';
 
 export interface iRegisterUserRepositoy {
-    registerUser(params: user): Promise<user>;
+    registerUser(params: iRegisterUserParams): Promise<user>;
 }
 
 export interface iRegisterUserParams {
