@@ -590,3 +590,81 @@
 [2025-05-14T22:20:05.102Z] INFO: server on!!! a on port 8080
 [2025-05-14T22:20:13.007Z] INFO: connected successfully to db
 [2025-05-14T22:20:13.015Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:32:55.896Z] INFO: connected successfully to db
+[2025-05-16T12:32:55.901Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:32:58.950Z] INFO: Get users controller called
+[2025-05-16T12:32:58.951Z] INFO: getUsersRepository start
+[2025-05-16T12:32:59.522Z] INFO: Get users successfully
+[2025-05-16T12:37:44.291Z] INFO: Get users controller called
+[2025-05-16T12:37:44.292Z] INFO: getUsersRepository start
+[2025-05-16T12:37:44.321Z] INFO: Get users successfully
+[2025-05-16T12:37:58.221Z] INFO: name
+[2025-05-16T12:37:58.222Z] INFO: description
+[2025-05-16T12:37:58.223Z] INFO: hours
+[2025-05-16T12:37:58.224Z] INFO: classes
+[2025-05-16T12:37:58.224Z] INFO: modules
+[2025-05-16T12:37:58.225Z] INFO: createCourseRepository start
+[2025-05-16T12:37:58.271Z] INFO: Course created successfully:
+[2025-05-16T12:37:58.297Z] INFO: Course created successfully
+[2025-05-16T12:38:02.196Z] INFO: Get courses controller called
+[2025-05-16T12:38:02.197Z] INFO: getCoursesRepository start
+[2025-05-16T12:38:02.217Z] INFO: Get courses successfully
+[2025-05-16T12:38:02.218Z] INFO: Response from get courses:
+[2025-05-16T12:38:40.984Z] INFO: Get course by id controller called
+[2025-05-16T12:38:40.985Z] INFO: id:
+[2025-05-16T12:38:40.985Z] INFO: getCourseByIdRepository start
+[2025-05-16T12:38:41.007Z] INFO: course:
+[2025-05-16T12:39:37.805Z] INFO: connected successfully to db
+[2025-05-16T12:39:37.810Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:39:50.144Z] INFO: Authorization header:
+[2025-05-16T12:39:59.850Z] INFO: connected successfully to db
+[2025-05-16T12:39:59.855Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:40:07.050Z] INFO: connected successfully to db
+[2025-05-16T12:40:07.055Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:40:08.611Z] INFO: Authorization header:
+[2025-05-16T12:40:08.612Z] INFO: undefined
+[2025-05-16T12:40:15.747Z] INFO: LoginRepository start
+[2025-05-16T12:40:16.168Z] INFO: login done sucessfully
+[2025-05-16T12:40:16.168Z] INFO: generating token....
+[2025-05-16T12:40:41.366Z] INFO: Authorization header:
+[2025-05-16T12:40:41.366Z] INFO: undefined
+[2025-05-16T12:40:42.424Z] INFO: Authorization header:
+[2025-05-16T12:40:42.424Z] INFO: undefined
+[2025-05-16T12:40:43.434Z] INFO: Authorization header:
+[2025-05-16T12:40:43.434Z] INFO: undefined
+[2025-05-16T12:40:44.633Z] INFO: Authorization header:
+[2025-05-16T12:40:44.633Z] INFO: undefined
+[2025-05-16T12:41:13.108Z] INFO: Authorization header:
+[2025-05-16T12:41:13.109Z] INFO: undefined
+[2025-05-16T12:41:19.843Z] INFO: Authorization header:
+[2025-05-16T12:41:19.844Z] INFO: undefined
+[2025-05-16T12:41:37.705Z] INFO: Authorization header:
+[2025-05-16T12:41:37.705Z] INFO: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDczOTkyMTYsImV4cCI6MTc0NzQwMjgxNn0.sKARERsbDPKSKXAP9abMBQsC0j8Mx33IqgpYlCJCGe0
+[2025-05-16T12:41:47.306Z] INFO: Authorization header:
+[2025-05-16T12:41:47.306Z] INFO: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDczOTkyMTYsImV4cCI6MTc0NzQwMjgxNn0.sKARERsbDPKSKXAP9abMBQsC0j8Mx33IqgpYlCJCGe0
+[2025-05-16T12:42:52.363Z] INFO: Authorization header:
+[2025-05-16T12:42:52.363Z] INFO: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDczOTkyMTYsImV4cCI6MTc0NzQwMjgxNn0.sKARERsbDPKSKXAP9abMBQsC0j8Mx33IqgpYlCJCGe0
+[2025-05-16T12:43:05.173Z] INFO: Authorization header:
+[2025-05-16T12:43:05.174Z] INFO: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDczOTkyMTYsImV4cCI6MTc0NzQwMjgxNn0.sKARERsbDPKSKXAP9abMBQsC0j8Mx33IqgpYlCJCGe0
+[2025-05-16T12:43:09.439Z] INFO: Authorization header:
+[2025-05-16T12:43:09.440Z] INFO: undefined
+[2025-05-16T12:43:15.221Z] INFO: Authorization header:
+[2025-05-16T12:43:15.221Z] INFO: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDczOTkyMTYsImV4cCI6MTc0NzQwMjgxNn0.sKARERsbDPKSKXAP9abMBQsC0j8Mx33IqgpYlCJCGe0
+[2025-05-16T12:43:30.984Z] INFO: connected successfully to db
+[2025-05-16T12:43:30.989Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:19.105Z] INFO: connected successfully to db
+[2025-05-16T12:44:19.110Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:21.855Z] INFO: connected successfully to db
+[2025-05-16T12:44:21.860Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:24.532Z] INFO: connected successfully to db
+[2025-05-16T12:44:24.536Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:34.438Z] INFO: connected successfully to db
+[2025-05-16T12:44:34.443Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:38.965Z] INFO: connected successfully to db
+[2025-05-16T12:44:38.969Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:41.910Z] INFO: connected successfully to db
+[2025-05-16T12:44:41.915Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:43.717Z] INFO: connected successfully to db
+[2025-05-16T12:44:43.722Z] INFO: server on!!! running on port 8080
+[2025-05-16T12:44:53.234Z] INFO: connected successfully to db
+[2025-05-16T12:44:53.240Z] INFO: server on!!! running on port 8080

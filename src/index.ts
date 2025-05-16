@@ -20,11 +20,11 @@ const main = async () => {
 
     await mongoClient.connect();
 
-    app.get('/', async (req, res) => {
+    app.get('/', authToken, async (req, res) => {
         res.send('Hello World');
     });
 
-    app.get('/users', async (req, res) => {
+    app.get('/users', authToken, async (req, res) => {
         const GetUsers = getUsersFactory();
 
         const response = await GetUsers.handle();
@@ -32,7 +32,7 @@ const main = async () => {
         res.status(response.statusCode).json(response.body);
     });
 
-    app.get('/users/:id', async (req, res) => {
+    app.get('/users/:id', authToken, async (req, res) => {
         const GetUserById = getUserByIdFactory();
 
         const httpRequest = {
@@ -48,7 +48,7 @@ const main = async () => {
         res.status(response.statusCode).json(response.body);
     });
 
-    app.get('/courses', async (req, res) => {
+    app.get('/courses', authToken, async (req, res) => {
         const GetCourses = getCoursesFactory();
 
         const response = await GetCourses.handle();
@@ -57,7 +57,7 @@ const main = async () => {
         logger.info('Response from get courses:', response);
     });
 
-    app.get('/courses/:id', async (req, res) => {
+    app.get('/courses/:id', authToken, async (req, res) => {
         const GetCourseById = getCourseByIdFactory();
 
         const HttpRequest = {
@@ -73,7 +73,7 @@ const main = async () => {
         res.status(response.statusCode).json(response.body);
     });
 
-    app.post('/courses', async (req, res) => {
+    app.post('/courses', authToken, async (req, res) => {
         const createCourse = createCourseFactory();
 
         const HttpRequest = {
