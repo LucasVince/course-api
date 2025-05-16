@@ -668,3 +668,127 @@
 [2025-05-16T12:44:43.722Z] INFO: server on!!! running on port 8080
 [2025-05-16T12:44:53.234Z] INFO: connected successfully to db
 [2025-05-16T12:44:53.240Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:26:03.674Z] INFO: connected successfully to db
+[2025-05-16T13:26:03.679Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:26:39.327Z] INFO: connected successfully to db
+[2025-05-16T13:26:39.332Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:26:48.512Z] INFO: connected successfully to db
+[2025-05-16T13:26:48.517Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:37:50.908Z] INFO: connected successfully to db
+[2025-05-16T13:37:50.912Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:38:23.361Z] INFO: Authorization header:
+[2025-05-16T13:38:23.362Z] INFO: undefined
+[2025-05-16T13:39:09.859Z] INFO: connected successfully to db
+[2025-05-16T13:39:09.863Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:39:10.255Z] INFO: Get users controller called
+[2025-05-16T13:39:10.256Z] INFO: getUsersRepository start
+[2025-05-16T13:39:11.112Z] INFO: Get users successfully
+[2025-05-16T13:39:17.805Z] INFO: Authorization header:
+[2025-05-16T13:39:17.806Z] INFO: undefined
+[2025-05-16T13:39:29.732Z] INFO: connected successfully to db
+[2025-05-16T13:39:29.737Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:39:30.096Z] INFO: name
+[2025-05-16T13:39:30.097Z] INFO: description
+[2025-05-16T13:39:30.097Z] INFO: hours
+[2025-05-16T13:39:30.097Z] INFO: classes
+[2025-05-16T13:39:30.098Z] INFO: modules
+[2025-05-16T13:39:30.099Z] INFO: createCourseRepository start
+[2025-05-16T13:39:30.512Z] ERROR: courseCreator invalid
+[2025-05-16T13:39:33.827Z] INFO: name
+[2025-05-16T13:39:33.828Z] INFO: description
+[2025-05-16T13:39:33.828Z] INFO: hours
+[2025-05-16T13:39:33.828Z] INFO: classes
+[2025-05-16T13:39:33.829Z] INFO: modules
+[2025-05-16T13:39:33.829Z] INFO: createCourseRepository start
+[2025-05-16T13:39:34.102Z] ERROR: courseCreator invalid
+[2025-05-16T13:39:59.216Z] INFO: connected successfully to db
+[2025-05-16T13:39:59.220Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:40:05.633Z] INFO: name
+[2025-05-16T13:40:05.633Z] INFO: description
+[2025-05-16T13:40:05.634Z] INFO: hours
+[2025-05-16T13:40:05.634Z] INFO: classes
+[2025-05-16T13:40:05.634Z] INFO: modules
+[2025-05-16T13:40:05.635Z] INFO: createCourseRepository start
+[2025-05-16T13:40:05.965Z] INFO: null
+[2025-05-16T13:40:05.966Z] ERROR: courseCreator invalid
+[2025-05-16T13:40:29.976Z] INFO: connected successfully to db
+[2025-05-16T13:40:29.981Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:40:32.400Z] INFO: name
+[2025-05-16T13:40:32.401Z] INFO: description
+[2025-05-16T13:40:32.402Z] INFO: hours
+[2025-05-16T13:40:32.402Z] INFO: classes
+[2025-05-16T13:40:32.402Z] INFO: modules
+[2025-05-16T13:40:32.403Z] INFO: createCourseRepository start
+[2025-05-16T13:40:32.863Z] INFO: [object Object]
+[2025-05-16T13:40:32.900Z] INFO: Course created successfully:
+[2025-05-16T13:40:33.155Z] INFO: Course created successfully
+[2025-05-16T13:40:43.397Z] INFO: connected successfully to db
+[2025-05-16T13:40:43.402Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:40:52.064Z] INFO: connected successfully to db
+[2025-05-16T13:40:52.069Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:40:54.580Z] INFO: connected successfully to db
+[2025-05-16T13:40:54.585Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:41:03.982Z] INFO: connected successfully to db
+[2025-05-16T13:41:03.988Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:41:07.295Z] INFO: connected successfully to db
+[2025-05-16T13:41:07.300Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:41:10.944Z] INFO: connected successfully to db
+[2025-05-16T13:41:10.948Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:41:16.804Z] INFO: Get courses controller called
+[2025-05-16T13:41:16.805Z] INFO: getCoursesRepository start
+[2025-05-16T13:41:17.140Z] INFO: Get courses successfully
+[2025-05-16T13:41:17.143Z] INFO: Response from get courses:
+[2025-05-16T13:41:35.377Z] INFO: Authorization header:
+[2025-05-16T13:41:35.378Z] INFO: undefined
+[2025-05-16T13:41:48.038Z] INFO: connected successfully to db
+[2025-05-16T13:41:48.043Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:41:49.330Z] INFO: Get course by id controller called
+[2025-05-16T13:41:49.331Z] INFO: id:
+[2025-05-16T13:41:49.331Z] INFO: getCourseByIdRepository start
+[2025-05-16T13:41:50.026Z] INFO: course:
+[2025-05-16T13:42:03.116Z] INFO: connected successfully to db
+[2025-05-16T13:42:03.121Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:42:03.813Z] INFO: Get courses controller called
+[2025-05-16T13:42:03.814Z] INFO: getCoursesRepository start
+[2025-05-16T13:42:04.153Z] INFO: Get courses successfully
+[2025-05-16T13:42:04.157Z] INFO: Response from get courses:
+[2025-05-16T13:42:09.800Z] INFO: Get course by id controller called
+[2025-05-16T13:42:09.801Z] INFO: id:
+[2025-05-16T13:42:09.802Z] INFO: getCourseByIdRepository start
+[2025-05-16T13:42:09.826Z] INFO: course:
+[2025-05-16T13:42:17.608Z] INFO: connected successfully to db
+[2025-05-16T13:42:17.613Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:42:20.501Z] INFO: connected successfully to db
+[2025-05-16T13:42:20.506Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:42:24.740Z] INFO: connected successfully to db
+[2025-05-16T13:42:24.746Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:43:31.332Z] INFO: connected successfully to db
+[2025-05-16T13:43:31.337Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:43:47.216Z] INFO: Get users controller called
+[2025-05-16T13:43:47.218Z] INFO: getUsersRepository start
+[2025-05-16T13:43:47.725Z] INFO: Get users successfully
+[2025-05-16T13:44:08.570Z] INFO: Register user controller initialized
+[2025-05-16T13:44:08.570Z] INFO: Register user controller body:
+[2025-05-16T13:44:08.571Z] INFO: name
+[2025-05-16T13:44:08.572Z] INFO: email
+[2025-05-16T13:44:08.572Z] INFO: password
+[2025-05-16T13:44:08.572Z] INFO: role
+[2025-05-16T13:44:08.665Z] INFO: Hashed password
+[2025-05-16T13:44:08.666Z] INFO: Role to lower case
+[2025-05-16T13:44:08.667Z] INFO: getCoursesRepository start
+[2025-05-16T13:44:08.721Z] INFO: User created successfully:
+[2025-05-16T13:44:08.743Z] INFO: generating token....
+[2025-05-16T13:44:08.750Z] INFO: User created
+[2025-05-16T13:44:08.751Z] INFO: Token generated
+[2025-05-16T13:44:08.754Z] INFO: Response from post user:
+[2025-05-16T13:44:19.080Z] INFO: name
+[2025-05-16T13:44:19.081Z] INFO: description
+[2025-05-16T13:44:19.081Z] INFO: hours
+[2025-05-16T13:44:19.082Z] INFO: classes
+[2025-05-16T13:44:19.082Z] INFO: modules
+[2025-05-16T13:44:19.082Z] INFO: createCourseRepository start
+[2025-05-16T13:44:19.106Z] ERROR: You need to be a teacher to create a course
+[2025-05-16T13:44:35.555Z] INFO: connected successfully to db
+[2025-05-16T13:44:35.560Z] INFO: server on!!! running on port 8080
+[2025-05-16T13:44:44.637Z] INFO: connected successfully to db
+[2025-05-16T13:44:44.641Z] INFO: server on!!! running on port 8080

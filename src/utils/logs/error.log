@@ -6,3 +6,7 @@
 [2025-05-06T23:50:34.473Z] ERROR: User already exists with this email:
 [2025-05-06T23:51:57.515Z] ERROR: User already exists with this email:
 [2025-05-13T21:55:12.069Z] ERROR: getCoursesRepository error: user already exists with this email:
+[2025-05-16T13:39:30.512Z] ERROR: courseCreator invalid
+[2025-05-16T13:39:34.102Z] ERROR: courseCreator invalid
+[2025-05-16T13:40:05.966Z] ERROR: courseCreator invalid
+[2025-05-16T13:44:19.106Z] ERROR: You need to be a teacher to create a course

@@ -5,6 +5,7 @@ export interface iCreateCourseRepository {
 }
 
 export interface iCreateCourseParams {
+    courseCreator_id: string,
     name: string;
     description: string;
     hours: number;
