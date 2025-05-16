@@ -590,3 +590,38 @@
 [2025-05-14T22:20:05.102Z] INFO: server on!!! a on port 8080
 [2025-05-14T22:20:13.007Z] INFO: connected successfully to db
 [2025-05-14T22:20:13.015Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:21:05.557Z] INFO: connected successfully to db
+[2025-05-14T22:21:05.564Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:21:21.009Z] INFO: connected successfully to db
+[2025-05-14T22:21:21.018Z] INFO: server on!!! running on port 8080
+[2025-05-14T22:21:58.736Z] INFO: Register user controller initialized
+[2025-05-14T22:21:58.738Z] INFO: Register user controller body:
+[2025-05-14T22:21:58.739Z] INFO: name
+[2025-05-14T22:21:58.739Z] INFO: email
+[2025-05-14T22:21:58.739Z] INFO: password
+[2025-05-14T22:21:58.739Z] INFO: role
+[2025-05-14T22:21:58.810Z] INFO: Hashed password
+[2025-05-14T22:21:58.811Z] INFO: Role to lower case
+[2025-05-14T22:21:58.811Z] INFO: getCoursesRepository start
+[2025-05-14T22:21:58.840Z] ERROR: getCoursesRepository error: user already exists with this email:
+[2025-05-14T22:21:58.842Z] INFO: Response from post user:
+[2025-05-14T22:22:03.299Z] INFO: Register user controller initialized
+[2025-05-14T22:22:03.300Z] INFO: Register user controller body:
+[2025-05-14T22:22:03.300Z] INFO: name
+[2025-05-14T22:22:03.300Z] INFO: email
+[2025-05-14T22:22:03.300Z] INFO: password
+[2025-05-14T22:22:03.300Z] INFO: role
+[2025-05-14T22:22:03.371Z] INFO: Hashed password
+[2025-05-14T22:22:03.372Z] INFO: Role to lower case
+[2025-05-14T22:22:03.372Z] INFO: getCoursesRepository start
+[2025-05-14T22:22:03.424Z] INFO: User created successfully:
+[2025-05-14T22:22:03.445Z] INFO: generating token....
+[2025-05-14T22:22:03.448Z] INFO: User created
+[2025-05-14T22:22:03.448Z] INFO: Token generated
+[2025-05-14T22:22:03.448Z] INFO: Response from post user:
+[2025-05-16T01:15:54.457Z] INFO: connected successfully to db
+[2025-05-16T01:15:54.465Z] INFO: server on!!! running on port 8080
+[2025-05-16T01:16:24.925Z] INFO: connected successfully to db
+[2025-05-16T01:16:24.935Z] INFO: server on!!! running on port 8080
+[2025-05-16T01:16:31.964Z] INFO: connected successfully to db
+[2025-05-16T01:16:31.973Z] INFO: server on!!! running on port 8080
