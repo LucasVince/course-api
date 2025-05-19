@@ -11,6 +11,7 @@ export class createCourseController implements iController {
     async handle(HttpRequest: HttpRequest<iCreateCourseParams>): Promise<HttpResponse<course>> {
         try {
             const requiredFields: Array<keyof iCreateCourseParams> = [
+                'courseCreator_id',
                 'name',
                 'description',
                 'hours',
@@ -32,7 +33,7 @@ export class createCourseController implements iController {
                 }
             }
 
-            const { name, description, hours, classes, modules } = body;
+            const { courseCreator_id, name, description, hours, classes, modules } = body;
 
             logger.info('name', name);
             logger.info('description', description);
@@ -41,6 +42,7 @@ export class createCourseController implements iController {
             logger.info('modules', modules);
 
             const courseData = {
+                courseCreator_id,
                 name,
                 description,
                 hours,

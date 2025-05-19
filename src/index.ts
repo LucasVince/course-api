@@ -1,5 +1,6 @@
 import express from 'express';
 import { config } from 'dotenv';
+import cors from 'cors';
 import { mongoClient } from './database/mongo';
 import { getUsersFactory } from './factories/get-users-factor';
 import { getUserByIdFactory } from './factories/get-user-by-id-factor';
@@ -10,21 +11,35 @@ import { authToken } from './middleware/authToken';
 import { getCourseByIdFactory } from './factories/get-course-by-id-factor';
 import { loginFactory } from './factories/login-facotr';
 import { createCourseFactory } from './factories/create-course-factor';
+import { deleteCourseFactory } from './factories/delete-course-factor';
 
 const main = async () => {
     const app = express();
 
     app.use(express.json());
+    app.use(cors());
+    app.use(
+        (err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+            logger.error(err);
+            res.status(500).json({ message: err });
+        },
+    );
 
     config();
 
     await mongoClient.connect();
 
+    process.on('SIGTERM', async () => {
+        logger.info('closing server...');
+        await mongoClient.client.close();
+        process.exit(0);
+    });
+
     app.get('/', async (req, res) => {
         res.send('Hello World');
     });
 
-    app.get('/users', async (req, res) => {
+    app.get('/users', authToken, async (req, res) => {
         const GetUsers = getUsersFactory();
 
         const response = await GetUsers.handle();
@@ -32,7 +47,7 @@ const main = async () => {
         res.status(response.statusCode).json(response.body);
     });
 
-    app.get('/users/:id', async (req, res) => {
+    app.get('/users/:id', authToken, async (req, res) => {
         const GetUserById = getUserByIdFactory();
 
         const httpRequest = {
@@ -48,7 +63,7 @@ const main = async () => {
         res.status(response.statusCode).json(response.body);
     });
 
-    app.get('/courses', async (req, res) => {
+    app.get('/courses', authToken, async (req, res) => {
         const GetCourses = getCoursesFactory();
 
         const response = await GetCourses.handle();
@@ -57,7 +72,7 @@ const main = async () => {
         logger.info('Response from get courses:', response);
     });
 
-    app.get('/courses/:id', async (req, res) => {
+    app.get('/courses/:id', authToken, async (req, res) => {
         const GetCourseById = getCourseByIdFactory();
 
         const HttpRequest = {
@@ -122,10 +137,33 @@ const main = async () => {
         res.status(response.statusCode).json(response.body);
     });
 
+    app.delete('/courses/:id', authToken, async (req, res) => {
+        const DeleteUser = deleteCourseFactory();
+
+        const HttpRequest = {
+            body: req.body,
+            params: req.params as { id: string },
+            headers: req.headers,
+            query: req.query,
+            method: req.method as 'DELETE',
+        };
+
+        const response = await DeleteUser.handle(HttpRequest);
+
+        res.status(response.statusCode).json(response.body);
+    });
+
     app.listen(process.env.PORT, () => {
         console.log(`server on!!! running on port ${process.env.PORT}`);
         logger.info(`server on!!! running on port ${process.env.PORT}`);
     });
 };
 
-main();
+main().catch((err) => {
+    if (err instanceof Error) {
+        console.log(err.message);
+    }
+    console.log(err);
+
+    process.exit(1);
+});

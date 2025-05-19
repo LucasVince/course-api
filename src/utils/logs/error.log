@@ -1,9 +1,0 @@
-[2025-05-06T21:21:36.237Z] ERROR: Missing param: name
-[2025-05-06T21:21:44.692Z] ERROR: Invalid email format
-[2025-05-06T21:21:56.347Z] ERROR: Invalid email format
-[2025-05-06T21:22:02.725Z] ERROR: Invalid role. Role must be either "teacher" or "student"
-[2025-05-06T21:22:23.775Z] ERROR: Missing param: password
-[2025-05-06T23:50:34.473Z] ERROR: User already exists with this email:
-[2025-05-06T23:51:57.515Z] ERROR: User already exists with this email:
-[2025-05-13T21:55:12.069Z] ERROR: getCoursesRepository error: user already exists with this email:
-[2025-05-14T22:21:58.840Z] ERROR: getCoursesRepository error: user already exists with this email:

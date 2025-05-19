@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import {
     iCreateCourseParams,
     iCreateCourseRepository,
@@ -9,15 +10,29 @@ import { logger } from '../utils/logger';
 export class mongoCreateCourseRepository implements iCreateCourseRepository {
     async createCourse(params: iCreateCourseParams): Promise<course> {
         logger.info('createCourseRepository start');
-        const { name, description, hours, classes, modules } = params;
+        const { courseCreator_id ,name, description, hours, classes, modules } = params;
+
+        const courseCreator = await mongoClient.db.collection('users').findOne({_id: new ObjectId(courseCreator_id) })
+        
+        if (!courseCreator) {
+            logger.error('courseCreator invalid')
+            throw new Error('courseCreator invalid')
+        }
+
+        if (courseCreator.role != 'teacher') {
+            logger.error('You need to be a teacher to create a course')
+            throw new Error('You need to be a teacher to create a course');
+        }
 
         const newCourse = await mongoClient.db.collection('courses').insertOne({
+            courseCreator_id,
             name,
             description,
             hours,
             classes,
             modules,
         });
+
         logger.info('Course created successfully:', { newCourse });
 
         const course = await mongoClient.db.collection<Omit<course, 'id'>>('courses').findOne({
