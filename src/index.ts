@@ -2,6 +2,7 @@ import express from 'express';
 import { config } from 'dotenv';
 import cors from 'cors';
 import { mongoClient } from './database/mongo';
+import { connectRedis, redisClient } from './database/redisClient';
 import { getUsersFactory } from './factories/get-users-factor';
 import { getUserByIdFactory } from './factories/get-user-by-id-factor';
 import { getCoursesFactory } from './factories/get-courses-factor';
@@ -12,6 +13,7 @@ import { getCourseByIdFactory } from './factories/get-course-by-id-factor';
 import { loginFactory } from './factories/login-facotr';
 import { createCourseFactory } from './factories/create-course-factor';
 import { deleteCourseFactory } from './factories/delete-course-factor';
+import { LogoutController } from './controller/logout/logout-controller';
 
 const main = async () => {
     const app = express();
@@ -28,10 +30,12 @@ const main = async () => {
     config();
 
     await mongoClient.connect();
+    await connectRedis();
 
     process.on('SIGTERM', async () => {
         logger.info('closing server...');
         await mongoClient.client.close();
+        await redisClient.quit();
         process.exit(0);
     });
 
@@ -151,6 +155,23 @@ const main = async () => {
         const response = await DeleteUser.handle(HttpRequest);
 
         res.status(response.statusCode).json(response.body);
+    });
+
+    app.post('/logout', authToken, async (req, res) => {
+        const logout = new LogoutController();
+
+        const httpRequest = {
+            body: req.body,
+            params: req.params,
+            headers: req.headers,
+            query: req.query,
+            method: req.method as 'POST',
+        };
+
+        const response = await logout.handle(httpRequest);
+
+        res.status(response.statusCode).json(response.body);
+        logger.info('Response from logout:', response);
     });
 
     app.listen(process.env.PORT, () => {

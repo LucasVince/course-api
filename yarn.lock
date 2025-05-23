@@ -183,6 +183,33 @@
   resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.2.4.tgz#d897170a2b0ba51f78a099edccd968f7b103387c"
   integrity sha512-ROFF39F6ZrnzSUEmQQZUar0Jt4xVoP9WnDRdWwF4NNcXs3xBTLgBUDoOwW141y1jP+S8nahIbdxbFC7IShw9Iw==
 
+"@redis/bloom@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@redis/bloom/-/bloom-5.1.0.tgz#8d76c311d777e8b1b8cce0d4b9318316f223aa3d"
+  integrity sha512-Gp5RWvVKbvItMU2sd848yhY/BnigToz8H4PYcvlBBSP5cQ3lVP1LMh5Kx2CYBNzCdDabVicwBKNvaoLBqPNqIg==
+
+"@redis/client@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@redis/client/-/client-5.1.0.tgz#68b4abf4476eefad9912c5e402070e4a8017b92f"
+  integrity sha512-FMD35y2KgCWTBLOfF0MhwDSaIVcu5mOUuTV9Kw3JOWHMgON3+ulht31cjTB/gph0BfD1vzUvCeROeRaf/d+35w==
+  dependencies:
+    cluster-key-slot "1.1.2"
+
+"@redis/json@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@redis/json/-/json-5.1.0.tgz#d750c110abee35640581cb8d5298b5d700c11a28"
+  integrity sha512-laXZt1Rlimk3py5ZoABBnd4xn/8dWbLUWGvVS7avgMhdczS+eWtXpElilJbFpc+7ZpVlol4vaSGFuR8ThDcTFw==
+
+"@redis/search@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@redis/search/-/search-5.1.0.tgz#6d6325ec8110b7a7f62b1aa7c67d38a2648291ba"
+  integrity sha512-afQYMeIdWGNPjr84GxxgJVkolxMW3BBrlNOwhRHPdzbdGh0rTUPjOJpGHBig34ostHX6AhZ6QwqceU1zLluDEg==
+
+"@redis/time-series@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@redis/time-series/-/time-series-5.1.0.tgz#8104ec51e7cc2a93daa4ced4fa6a94a1838f8c99"
+  integrity sha512-BjKndLXREPeb4ZtxrI6z1bz2FbzBj7LnWyyevNk6Wd7VRWQ3W10LSvJAJwguPD62mSqpTPhy0lMPqFJwo0gS7A==
+
 "@tsconfig/node10@^1.0.7":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.11.tgz#6ee46400685f130e278128c7b38b7e031ff5b2f2"
@@ -641,6 +668,11 @@ chownr@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
+
+cluster-key-slot@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.1.2.tgz#88ddaa46906e303b5de30d3153b7d9fe0a0c19ac"
+  integrity sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==
 
 color-convert@^1.9.3:
   version "1.9.3"
@@ -1830,6 +1862,17 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
+
+redis@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/redis/-/redis-5.1.0.tgz#74ff20e1ee42b080a07379733d12569719d75946"
+  integrity sha512-5G5k9sYo5H5L0kd7UETiJZFTkIClH31fSmaEk2eU8E7mrmF0J1t6RqmFXOCJmSRlNd3QyvDUK/AWL9psbKaN0Q==
+  dependencies:
+    "@redis/bloom" "5.1.0"
+    "@redis/client" "5.1.0"
+    "@redis/json" "5.1.0"
+    "@redis/search" "5.1.0"
+    "@redis/time-series" "5.1.0"
 
 resolve-from@^4.0.0:
   version "4.0.0"

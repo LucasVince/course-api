@@ -37,6 +37,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.16.0",
+    "redis": "^5.1.0",
     "validator": "^13.15.0"
   }
 }
