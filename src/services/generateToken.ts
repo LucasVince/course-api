@@ -1,5 +1,5 @@
 import { sign } from 'jsonwebtoken';
-import { logger } from './logger';
+import { logger } from '../utils/logger';
 
 export const generateToken = (payload: object): string => {
     logger.info('generating token....');

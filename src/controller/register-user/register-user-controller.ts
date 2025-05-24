@@ -5,7 +5,7 @@ import { iRegisterUserParams, iRegisterUserRepositoy } from './protocols';
 import { iJwtPayload } from '../../../types/JwtPayload';
 import { isEmail } from 'validator';
 import { hash } from 'bcrypt';
-import { generateToken } from '../../utils/generateToken';
+import { generateToken } from '../../services/generateToken';
 import { logger } from '../../utils/logger';
 
 export class registerUserController implements iController {
@@ -87,7 +87,7 @@ export class registerUserController implements iController {
             if (err instanceof Error) {
                 return serverError(err.message);
             }
-            return serverError(err)
+            return serverError(err);
         }
     }
 }

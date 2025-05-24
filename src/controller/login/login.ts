@@ -1,8 +1,7 @@
 import { iJwtPayload } from '../../../types/JwtPayload';
-import { mongoClient } from '../../database/mongo';
 import { user } from '../../models/user';
 import { mongoLoginRepository } from '../../repositories/mongo-login-repository';
-import { generateToken } from '../../utils/generateToken';
+import { generateToken } from '../../services/generateToken';
 import { logger } from '../../utils/logger';
 import { badRequest, ok, serverError } from '../helpers';
 import { HttpRequest, HttpResponse, iController } from '../protocols';
