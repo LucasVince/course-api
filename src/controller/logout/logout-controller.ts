@@ -1,7 +1,7 @@
 import { badRequest, ok } from '../helpers';
 import { HttpRequest, HttpResponse, iController } from '../protocols';
 import { logger } from '../../utils/logger';
-import { blacklistToken } from '../../services/blacklistToken';
+import { blacklistToken } from '../../services/blackListToken';
 
 export class LogoutController implements iController {
     async handle(

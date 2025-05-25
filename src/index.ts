@@ -14,6 +14,7 @@ import { loginFactory } from './factories/login-facotr';
 import { createCourseFactory } from './factories/create-course-factor';
 import { deleteCourseFactory } from './factories/delete-course-factor';
 import { LogoutController } from './controller/logout/logout-controller';
+import { deleteUserFactory } from './factories/delete-user-factor';
 
 const main = async () => {
     const app = express();
@@ -137,6 +138,22 @@ const main = async () => {
         };
 
         const response = await Login.handle(HttpRequest);
+
+        res.status(response.statusCode).json(response.body);
+    });
+
+    app.delete('/users/:id', authToken, async (req, res) => {
+        const deleteUser = deleteUserFactory();
+
+        const HttpRequest = {
+            body: req.body,
+            params: req.params as { id: string },
+            headers: req.headers,
+            query: req.query,
+            method: req.method as 'DELETE',
+        };
+
+        const response = await deleteUser.handle(HttpRequest);
 
         res.status(response.statusCode).json(response.body);
     });

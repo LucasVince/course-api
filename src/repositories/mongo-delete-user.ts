@@ -1,30 +1,30 @@
 import { ObjectId } from 'mongodb';
-import { iDeleteCourseRepository } from '../controller/delete-course/protocols';
+import { iDeleteUserRepository } from '../controller/delete-user/protocols';
 import { mongoClient } from '../database/mongo';
-import { course } from '../models/course';
+import { user } from '../models/user';
 import { logger } from '../utils/logger';
 
-export class mongoDeleteCourseRepository implements iDeleteCourseRepository {
-    async deleteCourse(id: string): Promise<course> {
+export class mongoDeleteUserRepository implements iDeleteUserRepository {
+    async deleteUser(id: string): Promise<user> {
         if (!id) {
             logger.error('ID is required');
             throw new Error('ID is required');
         }
 
-        const course = await mongoClient.db
-            .collection('courses')
+        const user = await mongoClient.db
+            .collection('users')
             .findOneAndDelete({ _id: new ObjectId(id) });
 
-        if (!course) {
+        if (!user) {
             logger.error('Course not found');
             throw new Error('Course not found');
         }
 
-        const { _id, ...courseData } = course;
+        const { _id, ...userData } = user;
 
         return {
             id: _id.toString(),
-            ...courseData,
-        } as course;
+            ...userData,
+        } as user;
     }
 }

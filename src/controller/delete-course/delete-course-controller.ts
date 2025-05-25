@@ -16,7 +16,7 @@ export class deleteCourseController implements iController {
                 return badRequest('ID is required');
             }
 
-            const course = await this.deleteCourseRepository.createCourse(id);
+            const course = await this.deleteCourseRepository.deleteCourse(id);
 
             return ok(course);
         } catch (err) {
