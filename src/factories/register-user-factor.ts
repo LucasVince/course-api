@@ -1,4 +1,4 @@
-import { registerUserController } from '../controller/register-user/register-user-controller';
+import { registerUserController } from '../controllers/register-user/register-user-controller';
 import { mongoRegisterUserRepository } from '../repositories/mongo-register-user';
 
 export const registerUserFactory = () => {

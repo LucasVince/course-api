@@ -1,4 +1,4 @@
-import { getUserByIdController } from '../controller/get-user-by-id/get-user-by-id-controller';
+import { getUserByIdController } from '../controllers/get-user-by-id/get-user-by-id-controller';
 import { mongoGetUserByIdRepository } from '../repositories/mongo-get-user-by-id';
 
 export const getUserByIdFactory = () => {

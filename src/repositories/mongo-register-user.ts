@@ -1,4 +1,7 @@
-import { iRegisterUserParams, iRegisterUserRepositoy } from '../controller/register-user/protocols';
+import {
+    iRegisterUserParams,
+    iRegisterUserRepositoy,
+} from '../controllers/register-user/protocols';
 import { mongoClient } from '../database/mongo';
 import { user } from '../models/user';
 import { logger } from '../utils/logger';

@@ -1,4 +1,4 @@
-import { getUsersController } from '../controller/get-users/get-users-controller';
+import { getUsersController } from '../controllers/get-users/get-users-controller';
 import { mongoGetUsersRepository } from '../repositories/mongo-get-users';
 
 export const getUsersFactory = () => {

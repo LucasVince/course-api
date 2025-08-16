@@ -1,6 +1,6 @@
 import { log } from 'console';
-import { badRequest, ok } from '../controller/helpers';
-import { HttpResponse } from '../controller/protocols';
+import { badRequest, ok } from '../controllers/helpers';
+import { HttpResponse } from '../controllers/protocols';
 import { redisClient } from '../database/redisClient';
 import { logger } from '../utils/logger';
 

@@ -1,4 +1,4 @@
-import { getCoursesController } from '../controller/get-courses/get-courses-controller';
+import { getCoursesController } from '../controllers/get-courses/get-courses-controller';
 import { mongoGetCoursesRepository } from '../repositories/mongo-get-courses';
 
 export const getCoursesFactory = () => {

@@ -1,4 +1,4 @@
-import { iJwtPayload } from '../src/controller/register-user/protocols';
+import { iJwtPayload } from '../src/controllers/register-user/protocols';
 
 declare global {
     namespace Express {

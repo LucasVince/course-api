@@ -1,4 +1,4 @@
-import { iGetCoursesRepository } from '../controller/get-courses/protocols';
+import { iGetCoursesRepository } from '../controllers/get-courses/protocols';
 import { mongoClient } from '../database/mongo';
 import { course } from '../models/course';
 import { logger } from '../utils/logger';

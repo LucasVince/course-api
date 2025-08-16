@@ -1,5 +1,5 @@
 import { mongoCreateCourseRepository } from '../repositories/mongo-create-course';
-import { createCourseController } from '../controller/create-course/create-course-controller';
+import { createCourseController } from '../controllers/create-course/create-course-controller';
 
 export const createCourseFactory = () => {
     const MongoCreateCourseRepository = new mongoCreateCourseRepository();

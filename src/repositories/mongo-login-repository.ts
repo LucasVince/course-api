@@ -1,4 +1,4 @@
-import { iLoginParams, iLoginRepository } from '../controller/login/protocols';
+import { iLoginParams, iLoginRepository } from '../controllers/login/protocols';
 import { mongoClient } from '../database/mongo';
 import { user } from '../models/user';
 import { logger } from '../utils/logger';

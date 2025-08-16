@@ -1,5 +1,5 @@
 import { user } from '../models/user';
-import { iGetUsersRepositoy } from '../controller/get-users/protocols';
+import { iGetUsersRepositoy } from '../controllers/get-users/protocols';
 import { mongoClient } from '../database/mongo';
 import { logger } from '../utils/logger';
 

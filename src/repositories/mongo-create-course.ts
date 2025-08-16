@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import {
     iCreateCourseParams,
     iCreateCourseRepository,
-} from '../controller/create-course/protocols';
+} from '../controllers/create-course/protocols';
 import { mongoClient } from '../database/mongo';
 import { course } from '../models/course';
 import { logger } from '../utils/logger';
@@ -10,17 +10,19 @@ import { logger } from '../utils/logger';
 export class mongoCreateCourseRepository implements iCreateCourseRepository {
     async createCourse(params: iCreateCourseParams): Promise<course> {
         logger.info('createCourseRepository start');
-        const { courseCreator_id ,name, description, hours, classes, modules } = params;
+        const { courseCreator_id, name, description, hours, classes, modules } = params;
 
-        const courseCreator = await mongoClient.db.collection('users').findOne({_id: new ObjectId(courseCreator_id) })
-        
+        const courseCreator = await mongoClient.db
+            .collection('users')
+            .findOne({ _id: new ObjectId(courseCreator_id) });
+
         if (!courseCreator) {
-            logger.error('courseCreator invalid')
-            throw new Error('courseCreator invalid')
+            logger.error('courseCreator invalid');
+            throw new Error('courseCreator invalid');
         }
 
         if (courseCreator.role != 'teacher') {
-            logger.error('You need to be a teacher to create a course')
+            logger.error('You need to be a teacher to create a course');
             throw new Error('You need to be a teacher to create a course');
         }
 

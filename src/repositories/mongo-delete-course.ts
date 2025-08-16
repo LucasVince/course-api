@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { iDeleteCourseRepository } from '../controller/delete-course/protocols';
+import { iDeleteCourseRepository } from '../controllers/delete-course/protocols';
 import { mongoClient } from '../database/mongo';
 import { course } from '../models/course';
 import { logger } from '../utils/logger';
