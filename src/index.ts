@@ -2,6 +2,8 @@ import express from 'express';
 
 import { config } from 'dotenv';
 import cors from 'cors';
+import { rateLimit } from 'express-rate-limit';
+
 import { logger } from './utils/logger';
 
 import { mongoClient } from './database/mongo';
@@ -16,8 +18,16 @@ const main = async () => {
 
     const app = express();
 
+    const limiter = rateLimit({
+        windowMs: 15 * 60 * 1000,
+        max: 5,
+        standardHeaders: true,
+        legacyHeaders: false,
+    });
+
     app.use(express.json());
     app.use(cors());
+    app.use(limiter);
     app.use(
         (err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
             logger.error(err);
