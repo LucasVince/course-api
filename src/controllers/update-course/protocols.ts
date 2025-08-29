@@ -1,10 +1,10 @@
 import { course } from '../../models/course';
 
 export interface iUpdateCourseRepository {
-    updateCourse(id: string, params: iUpdateCoursesParam): Promise<course>;
+    updateCourse(id: string, params: iUpdateCourseParam): Promise<course>;
 }
 
-export interface iUpdateCoursesParam {
+export interface iUpdateCourseParam {
     name?: string;
     description?: string;
     hours?: number;

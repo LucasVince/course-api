@@ -1,13 +1,13 @@
-import { course } from '../../models/course';
+import { user } from '../../models/user';
 import { logger } from '../../utils/logger';
 import { badRequest, serverError, ok } from '../helpers';
 import { HttpRequest, HttpResponse, iController } from '../protocols';
-import { iUpdateCourseRepository, iUpdateCourseParam } from './protocols';
+import { iUpdateUserRepository, iUpdateUserParam } from './protocols';
 
-export class updateCourseController implements iController {
-    constructor(private readonly updateCourseRepository: iUpdateCourseRepository) {}
+export class updateUserController implements iController {
+    constructor(private readonly updateUserRepository: iUpdateUserRepository) {}
 
-    async handle(HttpRequest: HttpRequest<unknown, { id: string }>): Promise<HttpResponse<course>> {
+    async handle(HttpRequest: HttpRequest<unknown, { id: string }>): Promise<HttpResponse<user>> {
         try {
             const id = HttpRequest?.params?.id;
             const body = HttpRequest.body!;
@@ -19,8 +19,8 @@ export class updateCourseController implements iController {
 
             const someFieldIsNotAllowed = Object.keys(HttpRequest.body!).some(
                 (key) =>
-                    !['name', 'description', 'hours', 'classes', 'modules'].includes(
-                        key as keyof iUpdateCourseParam,
+                    !['name', 'email', 'role', 'completedCourses', 'certificates', 'password'].includes(
+                        key as keyof iUpdateUserParam,
                     ),
             );
 
@@ -28,9 +28,9 @@ export class updateCourseController implements iController {
                 return badRequest('Some field is not allowed, or does not exist');
             }
 
-            const course = await this.updateCourseRepository.updateCourse(id, body);
+            const user = await this.updateUserRepository.updateUser(id, body);
 
-            return ok(course);
+            return ok(user);
         } catch (err) {
             if (err instanceof Error) {
                 return serverError(err.message);

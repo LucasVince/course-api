@@ -3,6 +3,7 @@ import { authToken } from '../middleware/authToken';
 import { getUsersFactory } from '../factories/get-users-factor';
 import { getUserByIdFactory } from '../factories/get-user-by-id-factor';
 import { deleteUserFactory } from '../factories/delete-user-factor';
+import { updateUserFactory } from '../factories/update-user-factor';
 
 const router = Router();
 
@@ -26,6 +27,22 @@ router.get('/get/:id', authToken, async (req, res) => {
     };
 
     const response = await GetUserById.handle(httpRequest);
+
+    res.status(response.statusCode).json(response.body);
+});
+
+router.patch('/update/:id', async (req, res) => {
+    const UpdateUser = updateUserFactory();
+
+    const httpRequest = {
+        body: req.body,
+        params: req.params as { id: string },
+        headers: req.headers,
+        query: req.query,
+        method: req.method as 'GET',
+    };
+
+    const response = await UpdateUser.handle(httpRequest);
 
     res.status(response.statusCode).json(response.body);
 });
