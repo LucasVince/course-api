@@ -3,6 +3,7 @@ export interface user {
     name: string;
     email: string;
     role: 'student' | 'teacher';
+    profilePicture: string;
     completedCourses: string[];
     certificates: string[];
     password: string;
