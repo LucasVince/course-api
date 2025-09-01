@@ -27,3 +27,7 @@ export enum HttpStatusCode {
 export interface iController {
     handle(HttpRequest: HttpRequest): Promise<HttpResponse<unknown>>;
 }
+
+export interface FileRequest {
+    file: Express.Multer.File;
+}

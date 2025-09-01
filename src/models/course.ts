@@ -5,4 +5,5 @@ export interface course {
     hours: number;
     classes: number;
     modules: number;
+    bannerImage: string;
 }

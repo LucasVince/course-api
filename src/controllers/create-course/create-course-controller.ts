@@ -1,14 +1,15 @@
-import { create } from 'domain';
 import { course } from '../../models/course';
 import { logger } from '../../utils/logger';
-import { created, serverError } from '../helpers';
-import { HttpRequest, HttpResponse, iController } from '../protocols';
+import { badRequest, created, serverError } from '../helpers';
+import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocols';
 import { iCreateCourseParams, iCreateCourseRepository } from './protocols';
 
 export class createCourseController implements iController {
     constructor(private readonly createCourseRepository: iCreateCourseRepository) {}
 
-    async handle(HttpRequest: HttpRequest<iCreateCourseParams>): Promise<HttpResponse<course>> {
+    async handle(HttpRequest: HttpRequest<iCreateCourseParams & Partial<FileRequest>>): Promise<HttpResponse<course>> {
+        const file = HttpRequest.body?.file;
+
         try {
             const requiredFields: Array<keyof iCreateCourseParams> = [
                 'courseCreator_id',
@@ -35,11 +36,13 @@ export class createCourseController implements iController {
 
             const { courseCreator_id, name, description, hours, classes, modules } = body;
 
-            logger.info('name', name);
-            logger.info('description', description);
-            logger.info('hours', hours);
-            logger.info('classes', classes);
-            logger.info('modules', modules);
+            if (!file) {
+                logger.error('Banner image is nescessary')
+                return badRequest('Banner image is nescessary')
+            }
+
+            const baseURL = 'http://localhost:3000'
+            const bannerImageUrl = `${baseURL}/uploads/${file.filename}`
 
             const courseData = {
                 courseCreator_id,
@@ -48,11 +51,10 @@ export class createCourseController implements iController {
                 hours,
                 classes,
                 modules,
+                bannerImage: bannerImageUrl
             };
 
             const course = await this.createCourseRepository.createCourse(courseData);
-
-            logger.info('Course created successfully', course);
 
             return created(course);
         } catch (err) {
