@@ -33,11 +33,11 @@ router.get('/get/:id', authToken, async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.post('/post', upload.single('banner'), async (req, res) => {
+router.post('/post', authToken, upload.single('banner'), async (req, res) => {
     const createCourse = createCourseFactory();
 
     const HttpRequest = {
-        body: {...req.body, file: req.file},
+        body: { ...req.body, file: req.file },
         params: req.params,
         headers: req.headers,
         query: req.query,

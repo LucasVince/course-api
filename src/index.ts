@@ -35,6 +35,7 @@ const main = async () => {
             res.status(500).json({ message: err });
         },
     );
+
     app.use('/uploads', express.static(path.resolve(process.cwd(), 'uploads')));
 
     app.use('/users', usersRoutes);

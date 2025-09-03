@@ -1,8 +1,11 @@
+import path from 'path';
 import { course } from '../../models/course';
 import { logger } from '../../utils/logger';
 import { badRequest, created, serverError } from '../helpers';
 import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocols';
 import { iCreateCourseParams, iCreateCourseRepository } from './protocols';
+import fs from 'fs';
+import sharp from 'sharp';
 
 export class createCourseController implements iController {
     constructor(private readonly createCourseRepository: iCreateCourseRepository) {}
@@ -46,7 +49,25 @@ export class createCourseController implements iController {
                 return badRequest('Banner image is nescessary');
             }
 
-            const bannerImageUrl = `/uploads/${file.filename}`;
+            if (!file.mimetype.startsWith('image/')) {
+                fs.unlinkSync(file.path);
+                badRequest('file needs to be an image');
+            }
+
+            const outputPath = path.resolve(file.destination, `resized ${file.filename}`);
+
+            const image = sharp(file.path);
+            const metadata = await image.metadata();
+
+            if (metadata.width || metadata.width > 1000) {
+                await image.resize({ width: 1000 }).toFile(outputPath);
+                fs.unlinkSync(file.path);
+            } else if (metadata.height || metadata.height > 1000) {
+                await image.resize({ height: 1000 }).toFile(outputPath);
+                fs.unlinkSync(file.path);
+            }
+
+            const bannerImageUrl = `/uploads/resized ${file.filename}`;
 
             const courseData = {
                 courseCreator_id,

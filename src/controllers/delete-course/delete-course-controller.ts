@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs';
 import { course } from '../../models/course';
 import { logger } from '../../utils/logger';
 import { badRequest, serverError, ok } from '../helpers';
@@ -17,6 +19,17 @@ export class deleteCourseController implements iController {
             }
 
             const course = await this.deleteCourseRepository.deleteCourse(id);
+
+            const bannerImage = course.bannerImage;
+
+            if (bannerImage) {
+                const filePath = path.join(process.cwd(), bannerImage.replace('/^\//', ''));
+
+                if (fs.existsSync(filePath)) {
+                    fs.unlinkSync(filePath);
+                    logger.info('file deleted successfully');
+                }
+            }
 
             return ok(course);
         } catch (err) {
