@@ -12,6 +12,7 @@ import { connectRedis, redisClient } from './database/redisClient';
 import usersRoutes from './routers/users-routes';
 import coursesRoutes from './routers/courses-routes';
 import regisRoutes from './routers/regis-routes';
+import path from 'path';
 
 const main = async () => {
     config();
@@ -27,13 +28,14 @@ const main = async () => {
 
     app.use(express.json());
     app.use(cors());
-    app.use(limiter);
+    // app.use(limiter);
     app.use(
         (err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
             logger.error(err);
             res.status(500).json({ message: err });
         },
     );
+    app.use('/uploads', express.static(path.resolve(process.cwd(), 'uploads')));
 
     app.use('/users', usersRoutes);
     app.use('/courses', coursesRoutes);

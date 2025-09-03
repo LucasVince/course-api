@@ -4,18 +4,18 @@ import fs from 'fs';
 
 const uploadPath = path.resolve(__dirname, '..', '..', 'uploads');
 
-if (!uploadPath) {
-    fs.mkdirSync(uploadPath, {recursive: true})
+if (!fs.existsSync(uploadPath)) {
+    fs.mkdirSync(uploadPath, { recursive: true });
 }
 
 const storage = multer.diskStorage({
     destination: (_req, _file, cb) => {
-        cb(null, uploadPath)
+        cb(null, uploadPath);
     },
     filename: (_req, file, cb) => {
         const uniqueSufix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         cb(null, `${uniqueSufix}-${file.originalname}`);
     },
-})
+});
 
-export const upload = multer({ storage })
+export const upload = multer({ storage });

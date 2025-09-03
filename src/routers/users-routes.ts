@@ -31,7 +31,7 @@ router.get('/get/:id', authToken, async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.patch('/update/:id', async (req, res) => {
+router.patch('/update/:id', authToken, async (req, res) => {
     const UpdateUser = updateUserFactory();
 
     const httpRequest = {

@@ -7,10 +7,13 @@ import { iCreateCourseParams, iCreateCourseRepository } from './protocols';
 export class createCourseController implements iController {
     constructor(private readonly createCourseRepository: iCreateCourseRepository) {}
 
-    async handle(HttpRequest: HttpRequest<iCreateCourseParams & Partial<FileRequest>>): Promise<HttpResponse<course>> {
-        const file = HttpRequest.body?.file;
-
+    async handle(
+        HttpRequest: HttpRequest<iCreateCourseParams & Partial<FileRequest>>,
+    ): Promise<HttpResponse<course>> {
         try {
+            const file = HttpRequest.body?.file;
+            const body = HttpRequest?.body!;
+
             const requiredFields: Array<keyof iCreateCourseParams> = [
                 'courseCreator_id',
                 'name',
@@ -19,8 +22,6 @@ export class createCourseController implements iController {
                 'classes',
                 'modules',
             ];
-
-            const body = HttpRequest?.body!;
 
             if (!body) {
                 logger.error('Missing body in create course controller');
@@ -34,15 +35,18 @@ export class createCourseController implements iController {
                 }
             }
 
-            const { courseCreator_id, name, description, hours, classes, modules } = body;
+            const { courseCreator_id, name, description } = body;
+
+            const hours = Number(body.hours);
+            const classes = Number(body.classes);
+            const modules = Number(body.modules);
 
             if (!file) {
-                logger.error('Banner image is nescessary')
-                return badRequest('Banner image is nescessary')
+                logger.error('Banner image is nescessary');
+                return badRequest('Banner image is nescessary');
             }
 
-            const baseURL = 'http://localhost:3000'
-            const bannerImageUrl = `${baseURL}/uploads/${file.filename}`
+            const bannerImageUrl = `/uploads/${file.filename}`;
 
             const courseData = {
                 courseCreator_id,
@@ -51,7 +55,7 @@ export class createCourseController implements iController {
                 hours,
                 classes,
                 modules,
-                bannerImage: bannerImageUrl
+                bannerImage: bannerImageUrl,
             };
 
             const course = await this.createCourseRepository.createCourse(courseData);

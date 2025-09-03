@@ -4,11 +4,11 @@ import { course } from '../models/course';
 import { logger } from '../utils/logger';
 import {
     iUpdateCourseRepository,
-    iUpdateCoursesParam,
+    iUpdateCourseParam,
 } from '../controllers/update-course/protocols';
 
 export class mongoUpdateCourseRepository implements iUpdateCourseRepository {
-    async updateCourse(id: string, params: iUpdateCoursesParam): Promise<course> {
+    async updateCourse(id: string, params: iUpdateCourseParam): Promise<course> {
         if (!id) {
             logger.error('ID is required');
             throw new Error('ID is required');

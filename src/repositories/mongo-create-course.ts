@@ -10,7 +10,8 @@ import { logger } from '../utils/logger';
 export class mongoCreateCourseRepository implements iCreateCourseRepository {
     async createCourse(params: iCreateCourseParams): Promise<course> {
         logger.info('createCourseRepository start');
-        const { courseCreator_id, name, description, hours, classes, modules } = params;
+        const { courseCreator_id, name, description, hours, classes, modules, bannerImage } =
+            params;
 
         const courseCreator = await mongoClient.db
             .collection('users')
@@ -33,9 +34,10 @@ export class mongoCreateCourseRepository implements iCreateCourseRepository {
             hours,
             classes,
             modules,
+            bannerImage,
         });
 
-        logger.info('Course created successfully:', { newCourse });
+        logger.info('Course created successfully');
 
         const course = await mongoClient.db.collection<Omit<course, 'id'>>('courses').findOne({
             _id: newCourse.insertedId,

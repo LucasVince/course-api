@@ -15,11 +15,11 @@ export class mongoUpdateUserRepository implements iUpdateUserRepository {
             throw new Error('ID is required');
         }
 
-        const courseToUpdate = await mongoClient.db
-            .collection('courses')
+        const userToUpdate = await mongoClient.db
+            .collection('users')
             .findOne({ _id: new ObjectId(id) });
 
-        if (!courseToUpdate) {
+        if (!userToUpdate) {
             logger.error('User not found');
             throw new Error('User not found');
         }
@@ -38,7 +38,7 @@ export class mongoUpdateUserRepository implements iUpdateUserRepository {
             .collection('users')
             .updateOne(
                 { _id: new ObjectId(id) },
-                { $set: { ...courseToUpdate!.params, ...params } },
+                { $set: { ...userToUpdate!.params, ...params } },
             );
 
         const user = await mongoClient.db
