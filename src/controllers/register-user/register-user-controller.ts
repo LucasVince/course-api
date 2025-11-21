@@ -69,6 +69,7 @@ export class registerUserController implements iController {
                 password: hashedPassword,
                 email: email,
                 role: roleToLowerCase,
+                profilePicture: 'none',
             };
 
             const user = await this.registerUserRepository.registerUser(userToCreate as user);

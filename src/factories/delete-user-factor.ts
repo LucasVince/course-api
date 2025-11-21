@@ -1,4 +1,4 @@
-import { deleteUserController } from '../controllers/delete-user/delete-course-controller';
+import { deleteUserController } from '../controllers/delete-user/delete-user-controller';
 import { mongoDeleteUserRepository } from '../repositories/mongo-delete-user';
 
 export const deleteUserFactory = () => {

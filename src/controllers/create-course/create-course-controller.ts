@@ -14,8 +14,8 @@ export class createCourseController implements iController {
         HttpRequest: HttpRequest<iCreateCourseParams & Partial<FileRequest>>,
     ): Promise<HttpResponse<course>> {
         try {
-            const file = HttpRequest.body?.file;
             const body = HttpRequest?.body!;
+            const file = HttpRequest.body?.file;
 
             const requiredFields: Array<keyof iCreateCourseParams> = [
                 'courseCreator_id',
@@ -54,20 +54,23 @@ export class createCourseController implements iController {
                 badRequest('file needs to be an image');
             }
 
-            const outputPath = path.resolve(file.destination, `resized ${file.filename}`);
+            const outputPath = path.resolve(
+                file.destination,
+                `bannerImageResized_${file.filename}`,
+            );
 
             const image = sharp(file.path);
             const metadata = await image.metadata();
 
-            if (metadata.width || metadata.width > 1000) {
+            if (metadata.width && metadata.width > 1000) {
                 await image.resize({ width: 1000 }).toFile(outputPath);
                 fs.unlinkSync(file.path);
-            } else if (metadata.height || metadata.height > 1000) {
+            } else if (metadata.height && metadata.height > 1000) {
                 await image.resize({ height: 1000 }).toFile(outputPath);
                 fs.unlinkSync(file.path);
             }
 
-            const bannerImageUrl = `/uploads/resized ${file.filename}`;
+            const bannerImageUrl = `/uploads/bannerImageResized_${file.filename}`;
 
             const courseData = {
                 courseCreator_id,

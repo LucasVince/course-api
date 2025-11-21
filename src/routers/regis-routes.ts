@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.post('/logout', authToken, async (req, res) => {
+router.post('/logout', async (req, res) => {
     const logout = new LogoutController();
 
     const httpRequest = {

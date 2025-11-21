@@ -13,12 +13,14 @@ export class mongoDeleteCourseRepository implements iDeleteCourseRepository {
 
         const course = await mongoClient.db
             .collection('courses')
-            .findOneAndDelete({ _id: new ObjectId(id) });
+            .findOne({ _id: new ObjectId(id) });
 
         if (!course) {
             logger.error('Course not found');
             throw new Error('Course not found');
         }
+
+        await mongoClient.db.collection('courses').findOneAndDelete({ _id: new ObjectId(id) });
 
         const { _id, ...courseData } = course;
 

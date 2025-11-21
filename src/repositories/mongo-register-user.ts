@@ -9,7 +9,7 @@ import { logger } from '../utils/logger';
 export class mongoRegisterUserRepository implements iRegisterUserRepositoy {
     async registerUser(params: iRegisterUserParams): Promise<user> {
         logger.info('getCoursesRepository start');
-        const { name, email, role, password } = params;
+        const { name, email, role, password, profilePicture } = params;
 
         const existingUser = await mongoClient.db.collection('users').findOne({ email });
 
@@ -27,6 +27,7 @@ export class mongoRegisterUserRepository implements iRegisterUserRepositoy {
             password,
             completedCourses: [],
             certificates: [],
+            profilePicture
         });
 
         logger.info('User created successfully:', { newUser });

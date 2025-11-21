@@ -1,10 +1,7 @@
 import { ObjectId } from 'mongodb';
 import { mongoClient } from '../database/mongo';
 import { logger } from '../utils/logger';
-import {
-    iUpdateUserRepository,
-    iUpdateUserParam,
-} from '../controllers/update-user/protocols';
+import { iUpdateUserRepository, iUpdateUserParam } from '../controllers/update-user/protocols';
 import { user } from '../models/user';
 import { hash } from 'bcrypt';
 
@@ -29,21 +26,18 @@ export class mongoUpdateUserRepository implements iUpdateUserRepository {
             params.password = hashedPassword;
         }
 
-        if (params.role != 'student' && params.role != 'teacher') {
-            logger.error('Role needs to be either student or teacher');
-            throw new Error('Role needs to be either student or teacher');
+        if (params.role) {
+            if (params.role != 'student' && params.role != 'teacher') {
+                logger.error('Role needs to be either student or teacher');
+                throw new Error('Role needs to be either student or teacher');
+            }
         }
 
         await mongoClient.db
             .collection('users')
-            .updateOne(
-                { _id: new ObjectId(id) },
-                { $set: { ...userToUpdate!.params, ...params } },
-            );
+            .updateOne({ _id: new ObjectId(id) }, { $set: { ...params } });
 
-        const user = await mongoClient.db
-            .collection('users')
-            .findOne({ _id: new ObjectId(id) });
+        const user = await mongoClient.db.collection('users').findOne({ _id: new ObjectId(id) });
 
         if (!user) {
             throw new Error('User not created');

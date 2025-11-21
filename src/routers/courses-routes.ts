@@ -17,7 +17,7 @@ router.get('/get', async (_req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.get('/get/:id', authToken, async (req, res) => {
+router.get('/get/:id', async (req, res) => {
     const GetCourseById = getCourseByIdFactory();
 
     const HttpRequest = {
@@ -33,7 +33,7 @@ router.get('/get/:id', authToken, async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.post('/post', authToken, upload.single('banner'), async (req, res) => {
+router.post('/post', upload.single('banner'), async (req, res) => {
     const createCourse = createCourseFactory();
 
     const HttpRequest = {
@@ -49,7 +49,7 @@ router.post('/post', authToken, upload.single('banner'), async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.patch('/update/:id', authToken, async (req, res) => {
+router.patch('/update/:id', async (req, res) => {
     const updateCourse = updateCourseFactory();
 
     const HttpRequest = {
@@ -65,7 +65,7 @@ router.patch('/update/:id', authToken, async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.delete('/delete/:id', authToken, async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     const DeleteUser = deleteCourseFactory();
 
     const HttpRequest = {
