@@ -32,15 +32,15 @@ export class mongoUpdateUserRepository implements iUpdateUserRepository {
                 throw new Error('Role needs to be either student or teacher');
             }
         }
-
+        
         await mongoClient.db
-            .collection('users')
-            .updateOne({ _id: new ObjectId(id) }, { $set: { ...params } });
-
+        .collection('users')
+        .updateOne({ _id: new ObjectId(id) }, { $set: { ...params } });
+        
         const user = await mongoClient.db.collection('users').findOne({ _id: new ObjectId(id) });
 
         if (!user) {
-            throw new Error('User not created');
+            throw new Error('User not updated');
         }
 
         const { _id, ...rest } = user;

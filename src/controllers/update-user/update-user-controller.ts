@@ -33,14 +33,13 @@ export class updateUserController implements iController {
                         'certificates',
                         'password',
                         'profilePicture',
+                        'file'
                     ].includes(key as keyof iUpdateUserParam),
             );
 
             if (someFieldIsNotAllowed) {
                 return badRequest('Some field is not allowed, or does not exist');
             }
-
-            const { name, email, role, completedCourses, certificates, password } = body;
 
             if (file) {
                 if (!file.mimetype.startsWith('image/')) {
@@ -50,7 +49,7 @@ export class updateUserController implements iController {
 
                 const outputPath = path.resolve(
                     file.destination,
-                    `${file.filename}profilePictureResized`,
+                    `profilePictureResized${file.filename}`,
                 );
 
                 const image = sharp(file.path);
@@ -62,12 +61,17 @@ export class updateUserController implements iController {
                 } else if (metadata.height && metadata.height > 1000) {
                     await image.resize({ height: 1000 }).toFile(outputPath);
                     fs.unlinkSync(file.path);
+                } else {
+                    await image.toFile(outputPath);
+                    fs.unlinkSync(file.path);
                 }
 
                 body.profilePicture = `/uploads/profilePictureResized${file.filename}`;
             }
 
-            const user = await this.updateUserRepository.updateUser(id, body);
+            const {file: _, ...bodyWithoutFile} = body;
+            
+            const user = await this.updateUserRepository.updateUser(id, bodyWithoutFile);
 
             return ok(user);
         } catch (err) {

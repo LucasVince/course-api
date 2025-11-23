@@ -36,7 +36,7 @@ router.patch('/update/:id', upload.single('profilePicture'), async (req, res) =>
     const UpdateUser = updateUserFactory();
 
     const httpRequest = {
-        body: req.body,
+        body: { ...req.body, file: req.file },
         params: req.params as { id: string },
         headers: req.headers,
         query: req.query,

@@ -9,7 +9,7 @@ export interface iUpdateUserParam {
     email?: string;
     role?: 'student' | 'teacher';
     completedCourses?: string[];
-    profilePicture: string;
+    profilePicture?: string;
     certificates?: string[];
     password?: string;
 }

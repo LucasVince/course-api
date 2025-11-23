@@ -19,12 +19,12 @@ export class deleteUserController implements iController {
                 return badRequest('ID is required');
             }
 
-            // if (!token) {
-            //     logger.error('Token not provided');
-            //     return badRequest('Token not provided');
-            // }
+            if (!token) {
+                logger.error('Token not provided');
+                return badRequest('Token not provided');
+            }
 
-            // blacklistToken(token);
+            blacklistToken(token);
 
             const user = await this.deleteUserRepository.deleteUser(id);
 
