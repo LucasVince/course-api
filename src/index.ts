@@ -42,11 +42,8 @@ const main = async () => {
     app.use('/courses', coursesRoutes);
     app.use('/regis', regisRoutes);
 
-    // await mongoClient.connect();
-    // await connectRedis();
-
-    console.log('connected successfully to db');
-    console.log('connected to redis');
+    await mongoClient.connect();
+    await connectRedis();
 
     process.on('SIGTERM', async () => {
         logger.info('closing server...');

@@ -1,0 +1,25 @@
+services:
+    api:
+        build: .
+        container_name: course-api
+        env_file: .env
+        environment:
+            - NODE_ENV=production
+        ports:
+            - 5000:5000
+        volumes:
+            - uploads_data:/app/uploads
+        depends_on:
+            - redis
+        restart: unless-stopped
+
+    redis:
+        image: redis:7-alpine
+        container_name: course-redis
+        ports:
+            - 6379:6379
+        restart: unless-stopped
+        command: ['redis-server', '--appendonly', 'yes']
+volumes:
+    uploads_data:
+        driver: local
