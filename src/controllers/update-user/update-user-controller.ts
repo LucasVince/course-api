@@ -33,7 +33,7 @@ export class updateUserController implements iController {
                         'certificates',
                         'password',
                         'profilePicture',
-                        'file'
+                        'file',
                     ].includes(key as keyof iUpdateUserParam),
             );
 
@@ -69,8 +69,8 @@ export class updateUserController implements iController {
                 body.profilePicture = `/uploads/profilePictureResized${file.filename}`;
             }
 
-            const {file: _, ...bodyWithoutFile} = body;
-            
+            const { file: _, ...bodyWithoutFile } = body;
+
             const user = await this.updateUserRepository.updateUser(id, bodyWithoutFile);
 
             return ok(user);

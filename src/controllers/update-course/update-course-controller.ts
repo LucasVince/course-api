@@ -1,16 +1,22 @@
+import path from 'path';
+import fs from 'fs';
 import { course } from '../../models/course';
 import { logger } from '../../utils/logger';
 import { badRequest, serverError, ok } from '../helpers';
-import { HttpRequest, HttpResponse, iController } from '../protocols';
+import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocols';
 import { iUpdateCourseRepository, iUpdateCourseParam } from './protocols';
+import sharp from 'sharp';
 
 export class updateCourseController implements iController {
     constructor(private readonly updateCourseRepository: iUpdateCourseRepository) {}
 
-    async handle(HttpRequest: HttpRequest<unknown, { id: string }>): Promise<HttpResponse<course>> {
+    async handle(
+        HttpRequest: HttpRequest<iUpdateCourseParam & Partial<FileRequest>, { id: string }>,
+    ): Promise<HttpResponse<course>> {
         try {
             const id = HttpRequest?.params?.id;
             const body = HttpRequest.body!;
+            const file = HttpRequest.body?.file;
 
             if (!id) {
                 logger.error('ID is required');
@@ -19,16 +25,52 @@ export class updateCourseController implements iController {
 
             const someFieldIsNotAllowed = Object.keys(HttpRequest.body!).some(
                 (key) =>
-                    !['name', 'description', 'hours', 'classes', 'modules'].includes(
-                        key as keyof iUpdateCourseParam,
-                    ),
+                    ![
+                        'name',
+                        'description',
+                        'hours',
+                        'classes',
+                        'modules',
+                        'banner',
+                        'file',
+                    ].includes(key as keyof iUpdateCourseParam),
             );
 
             if (someFieldIsNotAllowed) {
                 return badRequest('Some field is not allowed, or does not exist');
             }
 
-            const course = await this.updateCourseRepository.updateCourse(id, body);
+            if (file) {
+                if (!file.mimetype.startsWith('image/')) {
+                    fs.unlinkSync(file.path);
+                    badRequest('file needs to be an image');
+                }
+
+                const outputPath = path.resolve(
+                    file.destination,
+                    `bannerImageResized${file.filename}`,
+                );
+
+                const image = sharp(file.path);
+                const metadata = await image.metadata();
+
+                if (metadata.width && metadata.width > 1000) {
+                    await image.resize({ width: 1000 }).toFile(outputPath);
+                    fs.unlinkSync(file.path);
+                } else if (metadata.height && metadata.height > 1000) {
+                    await image.resize({ height: 1000 }).toFile(outputPath);
+                    fs.unlinkSync(file.path);
+                } else {
+                    await image.toFile(outputPath);
+                    fs.unlinkSync(file.path);
+                }
+
+                body.bannerImage = `/uploads/bannerImageResized${file.filename}`;
+            }
+
+            const { file: _, ...bodyWithoutFile } = body;
+
+            const course = await this.updateCourseRepository.updateCourse(id, bodyWithoutFile);
 
             return ok(course);
         } catch (err) {

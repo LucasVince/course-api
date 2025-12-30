@@ -49,11 +49,11 @@ router.post('/post', upload.single('banner'), async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.patch('/update/:id', async (req, res) => {
+router.patch('/update/:id', upload.single('banner'), async (req, res) => {
     const updateCourse = updateCourseFactory();
 
     const HttpRequest = {
-        body: req.body,
+        body: { ...req.body, file: req.file },
         params: req.params as { id: string },
         headers: req.headers,
         query: req.query,

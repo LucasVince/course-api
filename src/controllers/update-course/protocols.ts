@@ -10,4 +10,5 @@ export interface iUpdateCourseParam {
     hours?: number;
     classes?: number;
     modules?: number;
+    bannerImage?: string;
 }
