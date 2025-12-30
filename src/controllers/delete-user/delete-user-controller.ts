@@ -1,6 +1,7 @@
+import fs from 'fs';
+import path from 'path';
 import { user } from '../../models/user';
 import { blacklistToken } from '../../services/blackListToken';
-import { logger } from '../../utils/logger';
 import { badRequest, serverError, ok } from '../helpers';
 import { HttpRequest, HttpResponse, iController } from '../protocols';
 import { iDeleteUserRepository } from './protocols';
@@ -15,18 +16,26 @@ export class deleteUserController implements iController {
             const token = HttpRequest?.headers?.authorization?.split(' ')[1];
 
             if (!id) {
-                logger.error('ID is required');
                 return badRequest('ID is required');
             }
 
             if (!token) {
-                logger.error('Token not provided');
                 return badRequest('Token not provided');
             }
 
             blacklistToken(token);
 
             const user = await this.deleteUserRepository.deleteUser(id);
+
+            const profilePicture = user.profilePicture;
+
+            if (fs.existsSync(profilePicture)) {
+                const filePath = path.join(process.cwd(), profilePicture.replace('/^\//', ''));
+
+                if (fs.existsSync(filePath)) {
+                    fs.unlinkSync(filePath);
+                }
+            }
 
             return ok(user);
         } catch (err) {

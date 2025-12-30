@@ -1,14 +1,18 @@
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
 import { user } from '../../models/user';
-import { logger } from '../../utils/logger';
 import { badRequest, serverError, ok } from '../helpers';
 import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocols';
 import { iUpdateUserRepository, iUpdateUserParam } from './protocols';
+import { iGetUserByIdRepository } from '../get-user-by-id/protocols';
+import deleteFileFromUpdate from '../../utils/deleteFileFromUpdate';
 import sharp from 'sharp';
 
 export class updateUserController implements iController {
-    constructor(private readonly updateUserRepository: iUpdateUserRepository) {}
+    constructor(
+        private readonly updateUserRepository: iUpdateUserRepository,
+        private readonly getUserByIdRepository: iGetUserByIdRepository,
+    ) {}
 
     async handle(
         HttpRequest: HttpRequest<iUpdateUserParam & Partial<FileRequest>, { id: string }>,
@@ -19,7 +23,6 @@ export class updateUserController implements iController {
             const file = HttpRequest.body?.file;
 
             if (!id) {
-                logger.error('ID is required');
                 return badRequest('ID is required');
             }
 
@@ -67,6 +70,18 @@ export class updateUserController implements iController {
                 }
 
                 body.profilePicture = `/uploads/profilePictureResized${file.filename}`;
+            }
+
+            const oldUser = await this.getUserByIdRepository.getUserById(id);
+
+            if (!oldUser) {
+                return badRequest('User not found, could not delete old profile picture');
+            }
+
+            const oldProfilePicture = oldUser.profilePicture;
+
+            if (oldProfilePicture != 'none') {
+                deleteFileFromUpdate(oldProfilePicture);
             }
 
             const { file: _, ...bodyWithoutFile } = body;

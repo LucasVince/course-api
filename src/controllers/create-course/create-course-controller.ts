@@ -1,6 +1,5 @@
 import path from 'path';
 import { course } from '../../models/course';
-import { logger } from '../../utils/logger';
 import { badRequest, created, serverError } from '../helpers';
 import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocols';
 import { iCreateCourseParams, iCreateCourseRepository } from './protocols';
@@ -27,13 +26,11 @@ export class createCourseController implements iController {
             ];
 
             if (!body) {
-                logger.error('Missing body in create course controller');
                 return serverError('Missing body');
             }
 
             for (const field of requiredFields) {
                 if (!body[field]) {
-                    logger.error(`Missing param: ${field}`);
                     return serverError(`Missing param: ${field}`);
                 }
             }
@@ -45,7 +42,6 @@ export class createCourseController implements iController {
             const modules = Number(body.modules);
 
             if (!file) {
-                logger.error('Banner image is nescessary');
                 return badRequest('Banner image is nescessary');
             }
 

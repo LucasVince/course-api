@@ -2,21 +2,15 @@ import { ObjectId } from 'mongodb';
 import { iGetUserByIdRepository } from '../controllers/get-user-by-id/protocols';
 import { mongoClient } from '../database/mongo';
 import { user } from '../models/user';
-import { logger } from '../utils/logger';
-
 export class mongoGetUserByIdRepository implements iGetUserByIdRepository {
     async getUserById(id: string): Promise<user> {
-        logger.info('getUserByIdRepository start');
-
         if (!id) {
-            logger.error('please specify an id');
             throw new Error('please specify an id');
         }
 
         const user = await mongoClient.db.collection('users').findOne({ _id: new ObjectId(id) });
 
         if (!user) {
-            logger.error('getUserByIdRepository error: user not found');
             throw new Error('user not found');
         }
 

@@ -1,7 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { mongoClient } from '../database/mongo';
 import { course } from '../models/course';
-import { logger } from '../utils/logger';
 import {
     iUpdateCourseRepository,
     iUpdateCourseParam,
@@ -10,7 +9,6 @@ import {
 export class mongoUpdateCourseRepository implements iUpdateCourseRepository {
     async updateCourse(id: string, params: iUpdateCourseParam): Promise<course> {
         if (!id) {
-            logger.error('ID is required');
             throw new Error('ID is required');
         }
 
@@ -19,7 +17,6 @@ export class mongoUpdateCourseRepository implements iUpdateCourseRepository {
             .findOne({ _id: new ObjectId(id) });
 
         if (!courseToUpdate) {
-            logger.error('Course not found');
             throw new Error('Course not found');
         }
 

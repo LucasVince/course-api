@@ -1,7 +1,6 @@
 import path from 'path';
 import fs from 'fs';
 import { course } from '../../models/course';
-import { logger } from '../../utils/logger';
 import { badRequest, serverError, ok } from '../helpers';
 import { HttpRequest, HttpResponse, iController } from '../protocols';
 import { iDeleteCourseRepository } from './protocols';
@@ -14,7 +13,6 @@ export class deleteCourseController implements iController {
             const id = HttpRequest?.params?.id;
 
             if (!id) {
-                logger.error('ID is required');
                 return badRequest('ID is required');
             }
 
@@ -27,7 +25,6 @@ export class deleteCourseController implements iController {
 
                 if (fs.existsSync(filePath)) {
                     fs.unlinkSync(filePath);
-                    logger.info('file deleted successfully');
                 }
             }
 

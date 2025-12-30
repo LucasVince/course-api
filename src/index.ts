@@ -4,7 +4,6 @@ import { config } from 'dotenv';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 
-import { logger } from './utils/logger';
 
 import { mongoClient } from './database/mongo';
 import { connectRedis, redisClient } from './database/redisClient';
@@ -31,7 +30,6 @@ const main = async () => {
     // app.use(limiter);
     app.use(
         (err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
-            logger.error(err);
             res.status(500).json({ message: err });
         },
     );
@@ -46,7 +44,6 @@ const main = async () => {
     await connectRedis();
 
     process.on('SIGTERM', async () => {
-        logger.info('closing server...');
         await mongoClient.client.close();
         await redisClient.quit();
         process.exit(0);
@@ -58,7 +55,6 @@ const main = async () => {
 
     app.listen(process.env.PORT, () => {
         console.log(`server on!!! running on port ${process.env.PORT}`);
-        logger.info(`server on!!! running on port ${process.env.PORT}`);
     });
 };
 

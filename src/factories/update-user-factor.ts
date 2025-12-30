@@ -1,9 +1,14 @@
 import { updateUserController } from '../controllers/update-user/update-user-controller';
+import { mongoGetUserByIdRepository } from '../repositories/mongo-get-user-by-id';
 import { mongoUpdateUserRepository } from '../repositories/mongo-update-user';
 
 export const updateUserFactory = () => {
     const MongoUpdateUserRepository = new mongoUpdateUserRepository();
-    const UpdateUserController = new updateUserController(MongoUpdateUserRepository);
+    const MongoGetUserByIdRepository = new mongoGetUserByIdRepository();
+    const UpdateUserController = new updateUserController(
+        MongoUpdateUserRepository,
+        MongoGetUserByIdRepository,
+    );
 
     return UpdateUserController;
 };

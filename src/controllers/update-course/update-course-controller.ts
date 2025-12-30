@@ -1,14 +1,18 @@
 import path from 'path';
 import fs from 'fs';
 import { course } from '../../models/course';
-import { logger } from '../../utils/logger';
 import { badRequest, serverError, ok } from '../helpers';
 import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocols';
 import { iUpdateCourseRepository, iUpdateCourseParam } from './protocols';
 import sharp from 'sharp';
+import { iGetCourseByIdRepository } from '../get-course-by-id/protocols';
+import deleteFileFromUpdate from '../../utils/deleteFileFromUpdate';
 
 export class updateCourseController implements iController {
-    constructor(private readonly updateCourseRepository: iUpdateCourseRepository) {}
+    constructor(
+        private readonly updateCourseRepository: iUpdateCourseRepository,
+        private readonly getCourseByIdRepository: iGetCourseByIdRepository,
+    ) {}
 
     async handle(
         HttpRequest: HttpRequest<iUpdateCourseParam & Partial<FileRequest>, { id: string }>,
@@ -19,7 +23,6 @@ export class updateCourseController implements iController {
             const file = HttpRequest.body?.file;
 
             if (!id) {
-                logger.error('ID is required');
                 return badRequest('ID is required');
             }
 
@@ -66,6 +69,18 @@ export class updateCourseController implements iController {
                 }
 
                 body.bannerImage = `/uploads/bannerImageResized${file.filename}`;
+            }
+
+            const oldCourse = await this.getCourseByIdRepository.getCourseById(id);
+
+            if (!oldCourse) {
+                badRequest('Course not found, could not delete old profile picture');
+            }
+
+            const oldBannerImage = oldCourse.bannerImage;
+
+            if (oldBannerImage) {
+                deleteFileFromUpdate(oldBannerImage);
             }
 
             const { file: _, ...bodyWithoutFile } = body;
