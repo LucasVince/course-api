@@ -5,6 +5,7 @@ import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocol
 import { iCreateCourseParams, iCreateCourseRepository } from './protocols';
 import fs from 'fs';
 import sharp from 'sharp';
+import isAspectRatio from '../../utils/aspectRatioCalc';
 
 export class createCourseController implements iController {
     constructor(private readonly createCourseRepository: iCreateCourseRepository) {}
@@ -58,15 +59,27 @@ export class createCourseController implements iController {
             const image = sharp(file.path);
             const metadata = await image.metadata();
 
-            if (metadata.width && metadata.width > 1000) {
-                await image.resize({ width: 1000 }).toFile(outputPath);
-                fs.unlinkSync(file.path);
-            } else if (metadata.height && metadata.height > 1000) {
-                await image.resize({ height: 1000 }).toFile(outputPath);
-                fs.unlinkSync(file.path);
+            const isBanner = isAspectRatio(metadata.width, metadata.height, 16 / 9, 0.02);
+
+            if (!isBanner) {
+                await image.resize({
+                    width: 1920,
+                    height: 1080,
+                    fit: 'cover',
+                    position: 'center',
+                });
+            } else {
+                await image
+                    .resize({
+                        width: 1920,
+                        height: 1080,
+                        fit: 'inside',
+                        position: 'center',
+                    })
+                    .toFile(outputPath);
             }
 
-            const bannerImageUrl = `/uploads/bannerImageResized_${file.filename}`;
+            fs.unlinkSync(file.path);
 
             const courseData = {
                 courseCreator_id,
@@ -75,7 +88,7 @@ export class createCourseController implements iController {
                 hours,
                 classes,
                 modules,
-                bannerImage: bannerImageUrl,
+                bannerImage: `/uploads/bannerImageResized${file.filename}`,
             };
 
             const course = await this.createCourseRepository.createCourse(courseData);

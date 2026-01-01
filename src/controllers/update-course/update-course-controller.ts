@@ -7,6 +7,7 @@ import { iUpdateCourseRepository, iUpdateCourseParam } from './protocols';
 import sharp from 'sharp';
 import { iGetCourseByIdRepository } from '../get-course-by-id/protocols';
 import deleteFileFromUpdate from '../../utils/deleteFileFromUpdate';
+import isAspectRatio from '../../utils/aspectRatioCalc';
 
 export class updateCourseController implements iController {
     constructor(
@@ -57,11 +58,22 @@ export class updateCourseController implements iController {
                 const image = sharp(file.path);
                 const metadata = await image.metadata();
 
-                if (metadata.width && metadata.width > 1000) {
-                    await image.resize({ width: 1000 }).toFile(outputPath);
+                const isBanner = isAspectRatio(metadata.width, metadata.height, 16 / 9, 0.25);
+
+                if (!isBanner) {
+                    await image.resize({
+                        width: 1920,
+                        height: 1080,
+                        fit: 'cover',
+                        position: 'center',
+                    });
+                }
+
+                if (metadata.width && metadata.width > 2000) {
+                    await image.resize({ width: 1920 }).toFile(outputPath);
                     fs.unlinkSync(file.path);
-                } else if (metadata.height && metadata.height > 1000) {
-                    await image.resize({ height: 1000 }).toFile(outputPath);
+                } else if (metadata.height && metadata.height > 2000) {
+                    await image.resize({ height: 1080 }).toFile(outputPath);
                     fs.unlinkSync(file.path);
                 } else {
                     await image.toFile(outputPath);

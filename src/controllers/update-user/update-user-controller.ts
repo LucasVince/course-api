@@ -6,6 +6,7 @@ import { FileRequest, HttpRequest, HttpResponse, iController } from '../protocol
 import { iUpdateUserRepository, iUpdateUserParam } from './protocols';
 import { iGetUserByIdRepository } from '../get-user-by-id/protocols';
 import deleteFileFromUpdate from '../../utils/deleteFileFromUpdate';
+import isAspectRatio from '../../utils/aspectRatioCalc';
 import sharp from 'sharp';
 
 export class updateUserController implements iController {
@@ -58,11 +59,24 @@ export class updateUserController implements iController {
                 const image = sharp(file.path);
                 const metadata = await image.metadata();
 
-                if (metadata.width && metadata.width > 1000) {
-                    await image.resize({ width: 1000 }).toFile(outputPath);
+                const isSquare = isAspectRatio(metadata.width, metadata.height, 1, 0.1);
+
+                if (!isSquare) {
+                    await image
+                        .resize({
+                            width: 800,
+                            height: 800,
+                            fit: 'cover',
+                            position: 'center',
+                        })
+                        .toFile(outputPath);
+                }
+
+                if (metadata.width && metadata.width > 2000) {
+                    await image.resize({ width: 1920 }).toFile(outputPath);
                     fs.unlinkSync(file.path);
-                } else if (metadata.height && metadata.height > 1000) {
-                    await image.resize({ height: 1000 }).toFile(outputPath);
+                } else if (metadata.height && metadata.height > 2000) {
+                    await image.resize({ height: 1080 }).toFile(outputPath);
                     fs.unlinkSync(file.path);
                 } else {
                     await image.toFile(outputPath);
