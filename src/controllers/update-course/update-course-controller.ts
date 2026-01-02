@@ -80,7 +80,7 @@ export class updateCourseController implements iController {
                     fs.unlinkSync(file.path);
                 }
 
-                body.bannerImage = `/uploads/bannerImageResized${file.filename}`;
+                body.bannerImage = `/uploads/photos/bannerImageResized${file.filename}`;
             }
 
             const oldCourse = await this.getCourseByIdRepository.getCourseById(id);

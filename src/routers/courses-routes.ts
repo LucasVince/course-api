@@ -5,7 +5,7 @@ import { getCoursesFactory } from '../factories/get-courses-factor';
 import { createCourseFactory } from '../factories/create-course-factor';
 import { deleteCourseFactory } from '../factories/delete-course-factor';
 import { updateCourseFactory } from '../factories/update-course-factor';
-import { upload } from '../middleware/uploadMiddleware';
+import { photoUpload } from '../middleware/photoUploadMiddleware';
 
 const router = Router();
 
@@ -33,7 +33,7 @@ router.get('/get/:id', async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.post('/post', upload.single('banner'), async (req, res) => {
+router.post('/post', photoUpload.single('banner'), async (req, res) => {
     const createCourse = createCourseFactory();
 
     const HttpRequest = {
@@ -49,7 +49,7 @@ router.post('/post', upload.single('banner'), async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.patch('/update/:id', upload.single('banner'), async (req, res) => {
+router.patch('/update/:id', photoUpload.single('banner'), async (req, res) => {
     const updateCourse = updateCourseFactory();
 
     const HttpRequest = {

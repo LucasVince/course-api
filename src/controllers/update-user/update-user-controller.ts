@@ -83,7 +83,7 @@ export class updateUserController implements iController {
                     fs.unlinkSync(file.path);
                 }
 
-                body.profilePicture = `/uploads/profilePictureResized${file.filename}`;
+                body.profilePicture = `/uploads/photos/profilePictureResized${file.filename}`;
             }
 
             const oldUser = await this.getUserByIdRepository.getUserById(id);

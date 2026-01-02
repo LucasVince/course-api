@@ -4,7 +4,7 @@ import { getUsersFactory } from '../factories/get-users-factor';
 import { getUserByIdFactory } from '../factories/get-user-by-id-factor';
 import { deleteUserFactory } from '../factories/delete-user-factor';
 import { updateUserFactory } from '../factories/update-user-factor';
-import { upload } from '../middleware/uploadMiddleware';
+import { photoUpload } from '../middleware/photoUploadMiddleware';
 
 const router = Router();
 
@@ -32,7 +32,7 @@ router.get('/get/:id', async (req, res) => {
     res.status(response.statusCode).json(response.body);
 });
 
-router.patch('/update/:id', upload.single('profilePicture'), async (req, res) => {
+router.patch('/update/:id', photoUpload.single('profilePicture'), async (req, res) => {
     const UpdateUser = updateUserFactory();
 
     const httpRequest = {

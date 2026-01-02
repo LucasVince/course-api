@@ -2,7 +2,7 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 
-const uploadPath = path.resolve(__dirname, '..', '..', 'uploads');
+const uploadPath = path.resolve(__dirname, '..', '..', 'uploads', 'photos');
 
 if (!fs.existsSync(uploadPath)) {
     fs.mkdirSync(uploadPath, { recursive: true });
@@ -18,4 +18,4 @@ const storage = multer.diskStorage({
     },
 });
 
-export const upload = multer({ storage });
+export const photoUpload = multer({ storage });

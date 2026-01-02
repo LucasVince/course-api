@@ -12,7 +12,8 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile --prod
 COPY --from=builder /app/dist ./dist
-RUN mkdir -p /uploads
+RUN mkdir -p /uploads/photos
+RUN mkdir -p /uploads/videos
 
 EXPOSE 5000
 

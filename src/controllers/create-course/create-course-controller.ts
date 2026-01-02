@@ -88,7 +88,7 @@ export class createCourseController implements iController {
                 hours,
                 classes,
                 modules,
-                bannerImage: `/uploads/bannerImageResized${file.filename}`,
+                bannerImage: `/uploads/photos/bannerImageResized${file.filename}`,
             };
 
             const course = await this.createCourseRepository.createCourse(courseData);
