@@ -1,3 +1,5 @@
+import { certificates } from './cetificates';
+
 export interface user {
     id: string;
     name: string;
@@ -5,6 +7,8 @@ export interface user {
     role: 'student' | 'teacher';
     profilePicture: string;
     completedCourses: string[];
-    certificates: string[];
+    certificates: certificates[];
     password: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

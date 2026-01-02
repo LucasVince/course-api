@@ -54,6 +54,8 @@ export class registerUserController implements iController {
                 email: email,
                 role: roleToLowerCase,
                 profilePicture: 'none',
+                createdAt: new Date(),
+                updatedAt: new Date(),
             };
 
             const user = await this.registerUserRepository.registerUser(userToCreate as user);

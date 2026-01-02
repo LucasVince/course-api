@@ -7,7 +7,7 @@ import { user } from '../models/user';
 
 export class mongoRegisterUserRepository implements iRegisterUserRepositoy {
     async registerUser(params: iRegisterUserParams): Promise<user> {
-        const { name, email, role, password, profilePicture } = params;
+        const { name, email, role, password, profilePicture, createdAt, updatedAt } = params;
 
         const existingUser = await mongoClient.db.collection('users').findOne({ email });
 
@@ -23,6 +23,8 @@ export class mongoRegisterUserRepository implements iRegisterUserRepositoy {
             completedCourses: [],
             certificates: [],
             profilePicture,
+            createdAt,
+            updatedAt,
         });
 
         const user = await mongoClient.db.collection<Omit<user, 'id'>>('users').findOne({

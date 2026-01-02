@@ -11,4 +11,5 @@ export interface iUpdateCourseParam {
     classes?: number;
     modules?: number;
     bannerImage?: string;
+    updatedAt?: Date;
 }

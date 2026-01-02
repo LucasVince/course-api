@@ -12,4 +12,6 @@ export interface iCreateCourseParams {
     classes: number;
     modules: number;
     bannerImage: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

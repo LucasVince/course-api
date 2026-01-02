@@ -8,8 +8,17 @@ import { course } from '../models/course';
 
 export class mongoCreateCourseRepository implements iCreateCourseRepository {
     async createCourse(params: iCreateCourseParams): Promise<course> {
-        const { courseCreator_id, name, description, hours, classes, modules, bannerImage } =
-            params;
+        const {
+            courseCreator_id,
+            name,
+            description,
+            hours,
+            classes,
+            modules,
+            bannerImage,
+            createdAt,
+            updatedAt,
+        } = params;
 
         const courseCreator = await mongoClient.db
             .collection('users')
@@ -31,6 +40,8 @@ export class mongoCreateCourseRepository implements iCreateCourseRepository {
             classes,
             modules,
             bannerImage,
+            createdAt,
+            updatedAt,
         });
 
         const course = await mongoClient.db.collection<Omit<course, 'id'>>('courses').findOne({

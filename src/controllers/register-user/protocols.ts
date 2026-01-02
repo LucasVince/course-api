@@ -9,5 +9,7 @@ export interface iRegisterUserParams {
     email: string;
     role: 'student' | 'teacher';
     password: string;
-    profilePicture: string
+    profilePicture: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

@@ -12,4 +12,5 @@ export interface iUpdateUserParam {
     profilePicture?: string;
     certificates?: string[];
     password?: string;
+    updatedAt?: Date;
 }

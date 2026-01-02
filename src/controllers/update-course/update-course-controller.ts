@@ -97,6 +97,8 @@ export class updateCourseController implements iController {
 
             const { file: _, ...bodyWithoutFile } = body;
 
+            bodyWithoutFile.updatedAt = new Date();
+
             const course = await this.updateCourseRepository.updateCourse(id, bodyWithoutFile);
 
             return ok(course);

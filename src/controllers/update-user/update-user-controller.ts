@@ -100,6 +100,8 @@ export class updateUserController implements iController {
 
             const { file: _, ...bodyWithoutFile } = body;
 
+            bodyWithoutFile.updatedAt = new Date();
+
             const user = await this.updateUserRepository.updateUser(id, bodyWithoutFile);
 
             return ok(user);
