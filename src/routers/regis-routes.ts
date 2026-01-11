@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { LogoutController } from '../controllers/user/logout/logout-controller';
-import { loginFactory } from '../factories/login-facotr';
-import { registerUserFactory } from '../factories/register-user-factor';
+import { loginFactory } from '../factories/user/login-facotr';
+import { registerUserFactory } from '../factories/user/register-user-factor';
 import { authToken } from '../middleware/authToken';
 
 const router = Router();

@@ -1,4 +1,4 @@
-import { user } from '../../models/user';
+import { user } from '../../../models/user';
 
 export interface iGetUserByIdRepository {
     getUserById(id: string): Promise<user>;

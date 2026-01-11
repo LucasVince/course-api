@@ -1,4 +1,4 @@
-import { course } from '../../models/course';
+import { course } from '../../../models/course';
 
 export interface iCreateCourseRepository {
     createCourse(params: iCreateCourseParams): Promise<course>;

@@ -33,8 +33,6 @@ export class updateCourseController implements iController {
                         'name',
                         'description',
                         'hours',
-                        'classes',
-                        'modules',
                         'banner',
                         'file',
                     ].includes(key as keyof iUpdateCourseParam),

@@ -1,11 +1,11 @@
-import { classes } from './classes';
+import { lesson } from './lesson';
 
-export interface modules {
+export interface module {
     id: string;
     course_id: string;
     title: string;
     description: string;
-    classes: classes[];
+    lessons: lesson[];
     createdAt: Date;
     updatedAt: Date;
 }

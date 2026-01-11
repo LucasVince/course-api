@@ -1,4 +1,4 @@
-import { user } from '../../models/user';
+import { user } from '../../../models/user';
 
 export interface iUpdateUserRepository {
     updateUser(id: string, params: iUpdateUserParam): Promise<user>;

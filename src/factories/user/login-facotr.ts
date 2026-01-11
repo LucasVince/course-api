@@ -1,5 +1,5 @@
-import { loginController } from '../controllers/user/login/login';
-import { mongoLoginRepository } from '../repositories/user/mongo-login-repository';
+import { loginController } from '../../controllers/user/login/login';
+import { mongoLoginRepository } from '../../repositories/user/mongo-login-repository';
 
 export const loginFactory = () => {
     const MongoLoginRepository = new mongoLoginRepository();

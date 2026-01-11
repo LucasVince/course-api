@@ -28,7 +28,6 @@ export class mongoCreateCourseRepository implements iCreateCourseRepository {
             name,
             description,
             hours,
-            classes: [],
             modules: [],
             bannerImage,
             createdAt,

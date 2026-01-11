@@ -1,4 +1,4 @@
-import { user } from '../../models/user';
+import { user } from '../../../models/user';
 
 export interface iRegisterUserRepositoy {
     registerUser(params: iRegisterUserParams): Promise<user>;

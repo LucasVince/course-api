@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { getCourseByIdFactory } from '../factories/get-course-by-id-factor';
+import { getCourseByIdFactory } from '../factories/course/get-course-by-id-factor';
 import { authToken } from '../middleware/authToken';
-import { getCoursesFactory } from '../factories/get-courses-factor';
-import { createCourseFactory } from '../factories/create-course-factor';
-import { deleteCourseFactory } from '../factories/delete-course-factor';
-import { updateCourseFactory } from '../factories/update-course-factor';
+import { getCoursesFactory } from '../factories/course/get-courses-factor';
+import { createCourseFactory } from '../factories/course/create-course-factor';
+import { deleteCourseFactory } from '../factories/course/delete-course-factor';
+import { updateCourseFactory } from '../factories/course/update-course-factor';
 import { photoUpload } from '../middleware/photoUploadMiddleware';
 
 const router = Router();

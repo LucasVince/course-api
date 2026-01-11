@@ -1,5 +1,5 @@
 import { certificates } from './cetificates';
-import { modules } from './modules';
+import { module } from './module';
 
 export interface course {
     id: string;
@@ -7,7 +7,7 @@ export interface course {
     name: string;
     description: string;
     hours: number;
-    modules: modules;
+    modules: module[];
     bannerImage: string;
     createdAt: Date;
     updatedAt: Date;
