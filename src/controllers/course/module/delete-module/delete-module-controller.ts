@@ -3,7 +3,7 @@ import { badRequest, serverError, ok } from '../../../helpers';
 import { HttpRequest, HttpResponse, iController } from '../../../protocols';
 import { iDeleteModuleRepository } from './protocols';
 
-export class deleteCourseController implements iController {
+export class deleteModuleController implements iController {
     constructor(private readonly deleteModuleRepository: iDeleteModuleRepository) {}
 
     async handle(
