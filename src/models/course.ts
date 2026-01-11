@@ -1,4 +1,4 @@
-import { classes } from './classes';
+import { certificates } from './cetificates';
 import { modules } from './modules';
 
 export interface course {
@@ -7,9 +7,9 @@ export interface course {
     name: string;
     description: string;
     hours: number;
-    classes: classes[];
-    modules: modules[];
+    modules: modules;
     bannerImage: string;
     createdAt: Date;
     updatedAt: Date;
+    certificate: certificates;
 }

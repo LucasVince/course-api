@@ -4,13 +4,14 @@ import { config } from 'dotenv';
 import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 
-
 import { mongoClient } from './database/mongo';
 import { connectRedis, redisClient } from './database/redisClient';
 
 import usersRoutes from './routers/users-routes';
 import coursesRoutes from './routers/courses-routes';
 import regisRoutes from './routers/regis-routes';
+import modulesRoutes from './routers/modules-routes';
+
 import path from 'path';
 
 const main = async () => {
@@ -39,6 +40,7 @@ const main = async () => {
     app.use('/users', usersRoutes);
     app.use('/courses', coursesRoutes);
     app.use('/regis', regisRoutes);
+    app.use('/modules', modulesRoutes);
 
     await mongoClient.connect();
     await connectRedis();

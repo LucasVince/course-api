@@ -1,6 +1,6 @@
-import { updateUserController } from '../controllers/update-user/update-user-controller';
-import { mongoGetUserByIdRepository } from '../repositories/mongo-get-user-by-id';
-import { mongoUpdateUserRepository } from '../repositories/mongo-update-user';
+import { updateUserController } from '../controllers/user/update-user/update-user-controller';
+import { mongoGetUserByIdRepository } from '../repositories/user/mongo-get-user-by-id';
+import { mongoUpdateUserRepository } from '../repositories/user/mongo-update-user';
 
 export const updateUserFactory = () => {
     const MongoUpdateUserRepository = new mongoUpdateUserRepository();

@@ -1,5 +1,5 @@
-import { getCoursesController } from '../controllers/get-courses/get-courses-controller';
-import { mongoGetCoursesRepository } from '../repositories/mongo-get-courses';
+import { getCoursesController } from '../controllers/course/get-courses/get-courses-controller';
+import { mongoGetCoursesRepository } from '../repositories/course/mongo-get-courses';
 
 export const getCoursesFactory = () => {
     const MongoGetCoursesRepository = new mongoGetCoursesRepository();

@@ -1,5 +1,5 @@
-import { deleteCourseController } from '../controllers/delete-course/delete-course-controller';
-import { mongoDeleteCourseRepository } from '../repositories/mongo-delete-course';
+import { deleteCourseController } from '../controllers/course/delete-course/delete-course-controller';
+import { mongoDeleteCourseRepository } from '../repositories/course/mongo-delete-course';
 
 export const deleteCourseFactory = () => {
     const MongoDeleteCourseRepository = new mongoDeleteCourseRepository();
