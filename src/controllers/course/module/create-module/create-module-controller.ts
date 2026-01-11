@@ -3,6 +3,7 @@ import { badRequest, created, serverError } from '../../../helpers';
 import { HttpRequest, HttpResponse, iController } from '../../../protocols';
 import { iCreateModuleParams, iCreateModuleRepository } from './protocols';
 import { module } from '../../../../models/module';
+import { logger } from '../../../../utils/logger';
 
 export class createModuleController implements iController {
     constructor(private readonly createModuleRepository: iCreateModuleRepository) {}

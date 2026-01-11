@@ -9,14 +9,14 @@ export class getCourseByIdController implements iController {
         try {
             const id = HttpRequest?.params?.id;
 
-            const course = await  this.getCourseByIdRepository.getCourseById(id as string);
+            const course = await this.getCourseByIdRepository.getCourseById(id as string);
 
             return ok(course);
         } catch (err) {
             if (err instanceof Error) {
                 return serverError(err.message);
             }
-            return serverError(err)
+            return serverError(err);
         }
     }
 }

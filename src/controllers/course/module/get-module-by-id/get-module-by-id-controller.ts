@@ -13,12 +13,12 @@ export class getModuleByIdController implements iController {
             const course_id = HttpRequest?.params?.course_id;
             const module_id = HttpRequest?.params?.module_id;
 
-            const modules = await this.getModuleByIdRepository.getModuleById(
+            const module = await this.getModuleByIdRepository.getModuleById(
                 course_id as string,
                 module_id as string,
             );
 
-            return ok(modules);
+            return ok(module);
         } catch (err) {
             if (err instanceof Error) {
                 return serverError(err.message);
