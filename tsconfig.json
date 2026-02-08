@@ -29,7 +29,7 @@
         // "experimentalDecorators": true,
         // "emitDecoratorMetadata": true
     },
-    "include": ["src/**/*"], // Arquivos a serem incluídos
+    "include": ["src/**/*", "factories"], // Arquivos a serem incluídos
     "exclude": [
         // Arquivos a serem ignorados
         "node_modules",

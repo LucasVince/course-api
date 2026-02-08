@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { authToken } from '../middleware/authToken';
-import { getModulesFactory } from '../factories/course/module/get-modules-factor';
-import { getModuleByIdFactory } from '../factories/course/module/get-module-by-id-factor';
-import { createModuleFactory } from '../factories/course/module/create-course-factor';
-import { deleteModuleFactory } from '../factories/course/module/delete-course-factor';
+import { getModulesFactory } from '../../factories/course/module/get-modules-factor';
+import { getModuleByIdFactory } from '../../factories/course/module/get-module-by-id-factor';
+import { createModuleFactory } from '../../factories/course/module/create-course-factor';
+import { deleteModuleFactory } from '../../factories/course/module/delete-course-factor';
 import { logger } from '../utils/logger';
 
 const router = Router();

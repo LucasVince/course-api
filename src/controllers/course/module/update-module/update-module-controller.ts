@@ -1,6 +1,6 @@
 import { module } from '../../../../models/module';
 import { badRequest, serverError, ok } from '../../../helpers';
-import { FileRequest, HttpRequest, HttpResponse, iController } from '../../../protocols';
+import { HttpRequest, HttpResponse, iController } from '../../../protocols';
 import { iUpdateModuleRepository, iUpdateModuleParam } from './protocols';
 
 export class updateModuleController implements iController {

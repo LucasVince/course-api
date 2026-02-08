@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { authToken } from '../middleware/authToken';
-import { getUsersFactory } from '../factories/user/get-users-factor';
-import { getUserByIdFactory } from '../factories/user/get-user-by-id-factor';
-import { deleteUserFactory } from '../factories/user/delete-user-factor';
-import { updateUserFactory } from '../factories/user/update-user-factor';
+import { getUsersFactory } from '../../factories/user/get-users-factor';
+import { getUserByIdFactory } from '../../factories/user/get-user-by-id-factor';
+import { deleteUserFactory } from '../../factories/user/delete-user-factor';
+import { updateUserFactory } from '../../factories/user/update-user-factor';
 import { photoUpload } from '../middleware/photoUploadMiddleware';
 
 const router = Router();
