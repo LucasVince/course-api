@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { authToken } from '../middleware/authToken';
-import { getModulesFactory } from '../../factories/course/module/get-modules-factor';
-import { getModuleByIdFactory } from '../../factories/course/module/get-module-by-id-factor';
-import { createModuleFactory } from '../../factories/course/module/create-course-factor';
-import { deleteModuleFactory } from '../../factories/course/module/delete-course-factor';
-import { logger } from '../utils/logger';
+import { getModulesFactory } from '../factories/course/module/get-modules-factor';
+import { getModuleByIdFactory } from '../factories/course/module/get-module-by-id-factor';
+import { createModuleFactory } from '../factories/course/module/create-course-factor';
+import { deleteModuleFactory } from '../factories/course/module/delete-course-factor';
+import { updateModuleFactory } from '../factories/course/module/update-module-factor';
 
 const router = Router();
 
@@ -52,6 +52,22 @@ router.post('/post', async (req, res) => {
     };
 
     const response = await createModule.handle(HttpRequest);
+
+    res.status(response.statusCode).json(response.body);
+});
+
+router.patch('/update/:course_id/:module_id', async (req, res) => {
+    const updateModule = updateModuleFactory();
+
+    const HttpRequest = {
+        body: req.body,
+        params: req.params as { course_id: string; module_id: string },
+        headers: req.headers,
+        query: req.query,
+        method: req.method as 'PATCH',
+    };
+
+    const response = await updateModule.handle(HttpRequest);
 
     res.status(response.statusCode).json(response.body);
 });
